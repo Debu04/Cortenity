@@ -1,243 +1,929 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cortenity - A premium digital product company owning and operating multiple independent platforms.">
-    <title>Cortenity | Digital Product Company</title>
-    <!-- Google Fonts -->
+
+    <!-- Ultimate SEO & Google Standards -->
+    <title>Cortenity | Building Focused Digital Platforms & Specialized Tools</title>
+    <meta name="title" content="Cortenity | Building Focused Digital Platforms & Specialized Tools">
+    <meta name="description"
+        content="Cortenity is a digital product company architecting specialized platforms for creators and explorers. We build niche websites and integrate high-performance tools for AI art, e-commerce discovery, and interactive media.">
+    <meta name="keywords"
+        content="Cortenity, Digital Product Company, AI Art Tools, E-commerce Discovery, Browser Games, Digital Platforms">
+    <link rel="canonical" href="https://cortenity.com/">
+
+    <!-- Social Graphs -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cortenity.com/">
+    <meta property="og:title" content="Cortenity — Architecting Modern Digital Ecosystems">
+    <meta property="og:description"
+        content="Discover niche platforms and specialized tools designed for clarity, purpose, and performance.">
+    <meta property="og:image"
+        content="assets/images/Cortenity.com image by Subhra Prakash Mohanty as AI Artz - Black without background.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Cortenity | Digital Platform Architect">
+    <meta property="twitter:image"
+        content="assets/images/Cortenity.com image by Subhra Prakash Mohanty as AI Artz - Black without background.webp">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+
+    <!-- Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Ultra-Premium Styling System (Inlined for Guaranteed Performance) -->
+    <style>
+        :root {
+            --bg-master: #040404;
+            --bg-card: rgba(18, 18, 18, 0.6);
+            --bg-nav: rgba(4, 4, 4, 0.9);
+            --text-prim: #ffffff;
+            --text-sec: #9ca3af;
+            --text-dim: #4b5563;
+            --accent-glow: rgba(0, 163, 255, 0.15);
+            --accent-brand: #00a3ff;
+            --accent-secondary: #00ffa3;
+            --mouse-x: 50%;
+            --mouse-y: 50%;
+            --transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
+            --radius-xl: 32px;
+            --radius-lg: 16px;
+            --border: 1px solid rgba(255, 255, 255, 0.06);
+            --font-h: 'Outfit', sans-serif;
+            --font-b: 'Inter', sans-serif;
+        }
+
+        /* Essential Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-master);
+            color: var(--text-prim);
+            font-family: var(--font-b);
+            overflow-x: hidden;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Background & Polish */
+        .cursor-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--accent-glow), transparent 80%);
+        }
+
+        .texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10000;
+            opacity: 0.03;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        /* Navigation: Precision Design */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 0;
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
+            border-bottom: var(--border);
+            transition: var(--transition);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-h);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -1px;
+        }
+
+        .nav-logo img {
+            height: 36px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-sec);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-prim);
+        }
+
+        .nav-cta {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--accent-brand), var(--accent-secondary));
+            border-radius: 100px;
+            color: #000 !important;
+            font-weight: 700 !important;
+            box-shadow: 0 10px 20px rgba(0, 163, 255, 0.2);
+        }
+
+        /* Typography & Layout */
+        section {
+            padding: 140px 0;
+        }
+
+        .section-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--accent-brand);
+            letter-spacing: 4px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .h-large {
+            font-family: var(--font-h);
+            font-size: 5rem;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .subtext {
+            font-size: 1.4rem;
+            color: var(--text-sec);
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero .h-large {
+            background: linear-gradient(180deg, #fff 50%, rgba(255, 255, 255, 0.3) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 7rem;
+        }
+
+        /* Snapshot: Focus Grid */
+        .grid-focus {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .focus-box {
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: var(--radius-xl);
+            border: var(--border);
+            transition: var(--transition);
+        }
+
+        .focus-box:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .focus-box .icon {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .focus-box h3 {
+            font-family: var(--font-h);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .focus-box p {
+            color: var(--text-sec);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Ecosystem: Bifurcated Structure */
+        .platform-block {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 150px;
+        }
+
+        .platform-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .platform-hero.rev {
+            direction: rtl;
+        }
+
+        .platform-hero.rev * {
+            direction: ltr;
+        }
+
+        .platform-img {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: var(--border);
+            transition: var(--transition);
+        }
+
+        .platform-img img {
+            width: 100%;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .platform-hero:hover .platform-img img {
+            transform: scale(1.05);
+        }
+
+        .platform-text h2 {
+            font-family: var(--font-h);
+            font-size: 3.5rem;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .platform-desc {
+            font-size: 1.2rem;
+            color: var(--text-sec);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* Features vs Tools Clarity */
+        .meta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .meta-item h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meta-item h4::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .pill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pill {
+            padding: 8px 18px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.03);
+            border: var(--border);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .pill:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-brand);
+        }
+
+        .tool-library {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tool-card {
+            padding: 25px;
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.02);
+            border: var(--border);
+            transition: var(--transition);
+        }
+
+        .tool-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.02);
+        }
+
+        .tool-card strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--text-prim);
+        }
+
+        .tool-card span {
+            font-size: 0.85rem;
+            color: var(--text-sec);
+            font-weight: 300;
+        }
+
+        .status-tag {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--accent-secondary);
+            margin-left: 8px;
+        }
+
+        .status-tag.dev {
+            color: #facc15;
+        }
+
+        /* Philosophy & Vision */
+        .philosophy {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .philosophy p {
+            font-size: 2rem;
+            line-height: 1.4;
+            color: var(--text-sec);
+            font-weight: 300;
+        }
+
+        .philosophy p span {
+            color: var(--text-prim);
+            font-weight: 600;
+        }
+
+        /* Roadmap: Visual Timeline */
+        .roadmap-scroll {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .roadmap-item {
+            padding: 40px;
+            border-radius: var(--radius-xl);
+            background: var(--bg-card);
+            border: var(--border);
+            position: relative;
+        }
+
+        .roadmap-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 40px;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-brand);
+            box-shadow: 0 0 20px 2px var(--accent-brand);
+            border-radius: 50%;
+        }
+
+        .roadmap-phase {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .roadmap-item h5 {
+            font-family: var(--font-h);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .roadmap-item p {
+            font-size: 0.9rem;
+            color: var(--text-sec);
+            font-weight: 300;
+        }
+
+        /* Contact & Footer */
+        .contact-box {
+            background: linear-gradient(135deg, #111, #000);
+            padding: 80px;
+            border-radius: 40px;
+            border: var(--border);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .contact-box form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .form-full {
+            grid-column: span 2;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            background: #080808;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 25px;
+            border-radius: 12px;
+            color: #fff;
+            font-family: var(--font-b);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--accent-brand);
+            box-shadow: 0 0 20px rgba(0, 163, 255, 0.1);
+        }
+
+        .btn-send {
+            grid-column: span 2;
+            padding: 22px;
+            background: var(--text-prim);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .footer {
+            padding: 80px 0 40px;
+            border-top: var(--border);
+        }
+
+        .footer-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: var(--font-h);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 1200px) {
+            .h-large {
+                font-size: 4rem;
+            }
+
+            .hero .h-large {
+                font-size: 5rem;
+            }
+
+            .grid-focus,
+            .roadmap-scroll {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .platform-hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .tool-library {
+                grid-template-columns: 1fr;
+            }
+
+            .hero .h-large {
+                font-size: 3.5rem;
+            }
+
+            .contact-box form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-full,
+            .btn-send {
+                grid-column: span 1;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <!-- Navigation -->
+    <div class="texture"></div>
+    <div class="cursor-field" id="glow"></div>
+
     <nav class="navbar">
         <div class="container">
             <a href="#" class="nav-logo">
-                <img src="assets/images/logo-icon.png" alt="Cortenity Logo">
+                <img src="assets/images/Cortenity logo by Subhra Prakash Mohanty as AI Artz - Black without background.webp"
+                    alt="Cortenity Logo">
                 <span>Cortenity</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#ecosystem">Platforms</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact" class="nav-btn">Get in Touch</a></li>
+                <li><a href="#ecosystem">Ecosystem</a></li>
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#contact" class="nav-cta">Reach Out</a></li>
             </ul>
-            <div class="mobile-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
+    <header id="hero" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="fade-in">Cortenity</h1>
-                <p class="hero-tagline fade-in delay-1">Architecting the future through <span>digital product excellence</span>.</p>
-                <div class="hero-btns fade-in delay-2">
-                    <a href="#ecosystem" class="btn btn-primary">View Our Platforms</a>
-                </div>
+                <span class="section-tag reveal">Product-Driven Development</span>
+                <h1 class="h-large reveal">Cortenity — Building Focused Digital Platforms</h1>
+                <p class="subtext reveal">Architecting niche ecosystems integrated with professional tools for creators,
+                    explorers, and digital explorers.</p>
             </div>
         </div>
-        <div class="hero-gradient"></div>
-    </section>
+    </header>
 
-    <!-- Brand Snapshot -->
-    <section class="snapshot-section">
+    <section id="snapshot">
         <div class="container">
-            <div class="section-header">
-                <h2 class="reveal">Focus Areas</h2>
-            </div>
-            <div class="snapshot-grid">
-                <div class="snapshot-card reveal">
-                    <div class="icon">✨</div>
-                    <h3>AI & Creative Tools</h3>
-                    <p>Next-generation tools for creators, powered by advanced artificial intelligence.</p>
-                </div>
-                <div class="snapshot-card reveal">
-                    <div class="icon">📊</div>
-                    <h3>E-Commerce Intelligence</h3>
-                    <p>Data-driven insights and tools for the evolving digital marketplace.</p>
-                </div>
-                <div class="snapshot-card reveal">
-                    <div class="icon">🎮</div>
-                    <h3>Interactive Experiences</h3>
-                    <p>Immersive browser-based gaming and interactive digital environments.</p>
-                </div>
+            <span class="section-tag reveal">Core Domains</span>
+            <div class="grid-focus">
+                <article class="focus-box reveal">
+                    <span class="icon">✨</span>
+                    <h3>Generative AI</h3>
+                    <p>Sophisticated prompt engines and visual generators for the modern creative workflow.</p>
+                </article>
+                <article class="focus-box reveal">
+                    <span class="icon">🔍</span>
+                    <h3>Discovery Hubs</h3>
+                    <p>Curation-first e-commerce platforms designed to filter the noise of the digital market.</p>
+                </article>
+                <article class="focus-box reveal">
+                    <span class="icon">🕹️</span>
+                    <h3>Interactive Media</h3>
+                    <p>Lightweight, immersive browser-based gaming and choice-driven storytelling.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Platforms / Ecosystem -->
-    <section id="ecosystem" class="ecosystem-section">
+    <section id="ecosystem">
         <div class="container">
-            <div class="section-header">
-                <h2 class="reveal">Our Ecosystem</h2>
-                <p class="reveal">A portfolio of independent, high-performance digital platforms.</p>
-            </div>
-            <div class="platform-grid">
-                <!-- Platform 1 -->
-                <div class="platform-card reveal">
-                    <div class="card-tag">Live</div>
-                    <div class="card-content">
-                        <span class="category">AI & Creative Tools</span>
-                        <h3>AI Art Revolution</h3>
-                        <p>Premier destination for AI prompt engineering and creative resources.</p>
-                        <ul class="tool-list">
-                            <li>Realistic AI Photography Prompt Generator</li>
-                            <li>Mood to AI Prompt Generator</li>
-                        </ul>
-                        <a href="https://aiartrevolution.com" class="card-link" target="_blank">Explore Platform →</a>
+            <span class="section-tag reveal">The Digital Ecosystem</span>
+
+            <!-- AI Art Revolution -->
+            <div class="platform-block">
+                <div class="platform-hero reveal">
+                    <div class="platform-img">
+                        <img src="assets/images/AI Art Revolution Social Image by Subhra Prakash Mohanty as AI Artz.webp"
+                            alt="AI Art Revolution Website Features">
+                    </div>
+                    <div class="platform-text">
+                        <h2>AI Art Revolution</h2>
+                        <p class="platform-desc">A niche resource hub for AI art enthusiasts. The website provides a
+                            community-driven environment where users explore high-fidelity generative galleries and
+                            expert prompt techniques.</p>
+
+                        <div class="meta-group">
+                            <div class="meta-item">
+                                <h4>Website Features (What you get)</h4>
+                                <div class="pill-grid">
+                                    <span class="pill">Community Showcases</span>
+                                    <span class="pill">Style Documentation</span>
+                                    <span class="pill">Pro Workflow Guides</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <h4>Integrated Tools (Niche Products)</h4>
+                                <div class="tool-library">
+                                    <div class="tool-card">
+                                        <strong>Mood-to-AI Prompt Generator <span
+                                                class="status-tag">Live</span></strong>
+                                        <span>Instant high-fidelity artistic prompts.</span>
+                                    </div>
+                                    <div class="tool-card">
+                                        <strong>Realistic Photography Engine <span
+                                                class="status-tag">Live</span></strong>
+                                        <span>Specialized parameters for lifelike imagery.</span>
+                                    </div>
+                                    <div class="tool-card">
+                                        <strong>Creative Inspiration Hub <span class="status-tag dev">In
+                                                Dev</span></strong>
+                                        <span>Dynamic concept randomized for artists.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Platform 2 -->
-                <div class="platform-card reveal">
-                    <div class="card-tag coming-soon">Coming Soon</div>
-                    <div class="card-content">
-                        <span class="category">E-Commerce Intelligence</span>
-                        <h3>Best of Trend</h3>
-                        <p>Leveraging big data to discover trending products across global markets.</p>
-                        <ul class="tool-list">
-                            <li>Country-Based Top Product Finder</li>
-                        </ul>
-                        <span class="status-text">Development in Progress</span>
+            </div>
+
+            <!-- Best of Trend -->
+            <div class="platform-block">
+                <div class="platform-hero reveal rev">
+                    <div class="platform-img">
+                        <img src="assets/images/Best of Trend Social Image by Subhra Prakash Mohanty as AI Artz.webp"
+                            alt="Best of Trend Website Features">
+                    </div>
+                    <div class="platform-text">
+                        <h2>Best of Trend</h2>
+                        <p class="platform-desc">A premium e-commerce discovery hub. This niche website handpicks
+                            trending products from global retailers to offer a curated shopping experience without the
+                            clutter.</p>
+
+                        <div class="meta-group">
+                            <div class="meta-item">
+                                <h4>Website Features (What you get)</h4>
+                                <div class="pill-grid">
+                                    <span class="pill">Handpicked Trend Reports</span>
+                                    <span class="pill">Retailer Transparency</span>
+                                    <span class="pill">Expert Product Rating</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <h4>Integrated Tools (Niche Products)</h4>
+                                <div class="tool-library">
+                                    <div class="tool-card">
+                                        <strong>Country-Based Search <span class="status-tag">Live</span></strong>
+                                        <span>Localized trending product intelligence.</span>
+                                    </div>
+                                    <div class="tool-card">
+                                        <strong>Best Seller Tracker <span class="status-tag dev">In Dev</span></strong>
+                                        <span>Real-time tracking of top retail items.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Platform 3 -->
-                <div class="platform-card reveal">
-                    <div class="card-tag coming-soon">Coming Soon</div>
-                    <div class="card-content">
-                        <span class="category">Interactive Experiences</span>
-                        <h3>Gaming Platform</h3>
-                        <p>High-fidelity, browser-based games and interactive narrative experiences.</p>
-                        <span class="status-text">Concept Stage</span>
+            </div>
+
+            <!-- Gaming Platform -->
+            <div class="platform-block">
+                <div class="platform-hero reveal">
+                    <div class="platform-img">
+                        <img src="assets/images/platform-gaming.png" alt="Cortenity Gaming Website Features">
+                    </div>
+                    <div class="platform-text">
+                        <h2>Cortenity Gaming</h2>
+                        <p class="platform-desc">An coming-soon interactive hub dedicated to browser-native experiences.
+                            The platform offers a minimalist environment for quick-access gaming and narrative play.</p>
+
+                        <div class="meta-group">
+                            <div class="meta-item">
+                                <h4>Website Features (What you get)</h4>
+                                <div class="pill-grid">
+                                    <span class="pill">Instant-Play Hub</span>
+                                    <span class="pill">Cloud Save Sync</span>
+                                    <span class="pill">Competitive Leaderboards</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <h4>Integrated Tools (Niche Products)</h4>
+                                <div class="tool-library">
+                                    <div class="tool-card">
+                                        <strong>Interactive Storytelling <span
+                                                class="status-tag dev">Prototyping</span></strong>
+                                        <span>Choice-driven digital narrative engine.</span>
+                                    </div>
+                                    <div class="tool-card">
+                                        <strong>Mini-Game Generator <span class="status-tag dev">In R&D</span></strong>
+                                        <span>Automated level design for browser games.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="vision">
+        <div class="container">
+            <div class="philosophy reveal">
+                <span class="section-tag">Our Vision</span>
+                <p>Cortenity builds focused platforms that solve real problems. We believe in <span>high-performance
+                        architecture</span>, <span>minimalist aesthetic</span>, and <span>user-centric utility</span>.
+                    Each website is a destination, and each tool is a specialized companion.</p>
             </div>
         </div>
     </section>
 
-    <!-- Vision / Philosophy -->
-    <section class="vision-section">
+    <section id="roadmap">
         <div class="container">
-            <div class="vision-content reveal">
-                <h2>Visionary Engineering</h2>
-                <p>At Cortenity, we reject the temporary. We build digital products meant to endure, focusing on user-centric design, robust architecture, and a product-first philosophy that prioritizes long-term value over short-term trends.</p>
-                <div class="vision-quote">
-                    "We don't just build apps; we architect digital ecosystems."
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section id="roadmap" class="roadmap-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="reveal">Roadmap</h2>
-            </div>
-            <div class="roadmap-timeline">
+            <span class="section-tag reveal">Roadmap</span>
+            <div class="roadmap-scroll">
                 <div class="roadmap-item reveal">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-info">
-                        <h4>Phase 1: AI Foundations (Current)</h4>
-                        <p>Expanding the AI Art Revolution ecosystem with advanced prompt models and studio tools.</p>
-                    </div>
+                    <span class="roadmap-phase">Phase 01</span>
+                    <h5>AI Ecosystem Scale</h5>
+                    <p>Expanding AI Art Revolution with deeper style modeling and community features.</p>
                 </div>
                 <div class="roadmap-item reveal">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-info">
-                        <h4>Phase 2: Market Intelligence</h4>
-                        <p>Deployment of "Best of Trend" and integration of multi-market data analysis tools.</p>
-                    </div>
+                    <span class="roadmap-phase">Phase 02</span>
+                    <h5>Discovery Intelligence</h5>
+                    <p>Integrating machine learning for more precise product trend predictions on Best of Trend.</p>
                 </div>
                 <div class="roadmap-item reveal">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-info">
-                        <h4>Phase 3: Interactive Expansion</h4>
-                        <p>Launch of the central gaming hub and first-party browser titles.</p>
-                    </div>
+                    <span class="roadmap-phase">Phase 03</span>
+                    <h5>Interactive Rollout</h5>
+                    <p>Alpha launch of the Cortenity Gaming hub with core narrative toolsets.</p>
+                </div>
+                <div class="roadmap-item reveal">
+                    <span class="roadmap-phase">Phase 04</span>
+                    <h5>New Verticals</h5>
+                    <p>Researching new niches where digital platforms can simplify complex human problems.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="contact">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-text reveal">
-                    <h2>About Cortenity</h2>
-                    <p>Cortenity is a private digital holding company specializing in the creation and operation of niche-dominating digital platforms. We operate with a venture studio model, incubating ideas from concept to global scale.</p>
-                    <ul class="about-list">
-                        <li><strong>Product-First:</strong> Quality is our only metric.</li>
-                        <li><strong>Independent:</strong> Each platform is built to stand alone.</li>
-                        <li><strong>Long-Term:</strong> We build for the next decade, not the next quarter.</li>
-                    </ul>
-                </div>
-                <div class="about-image reveal">
-                    <div class="glass-box">
-                        <img src="assets/images/logo-full.png" alt="Cortenity Brand">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-card reveal">
-                <div class="section-header">
-                    <h2>Connect With Us</h2>
-                    <p>Interested in our platforms or potential collaborations? Drop us a message.</p>
-                </div>
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary full-width">Send Message</button>
-                    <div id="form-status" class="form-status"></div>
+            <div class="contact-box reveal">
+                <h1 class="h-large">Let's Connect</h1>
+                <p class="subtext">Have an inquiry about our platforms or interested in a partnership? We're ready to
+                    talk.</p>
+                <form id="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea placeholder="Tell us about your project or inquiry..." rows="6" class="form-full"
+                        required></textarea>
+                    <button type="submit" class="btn-send">Send Inquiry</button>
+                    <div id="form-status" style="margin-top: 20px; text-align: center;"></div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="assets/images/logo-icon.png" alt="Cortenity Logo">
-                    <span>Cortenity</span>
-                </div>
-                <div class="footer-links">
-                    <a href="https://aiartrevolution.com">AI Art Revolution</a>
-                    <a href="#">Best of Trend</a>
-                    <a href="#">Privacy Policy</a>
-                </div>
+            <div class="footer-wrap">
+                <div class="footer-logo">Cortenity</div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#ecosystem">Ecosystem</a></li>
+                    <li><a href="#vision">Philosophy</a></li>
+                </ul>
             </div>
-            <hr class="footer-divider">
             <div class="footer-bottom">
-                <p>&copy; 2026 Cortenity. All rights reserved. Architecting digital futures.</p>
+                <p>&copy; 2026 Cortenity Platforms. Architecting Excellence.</p>
+                <p>Built with Purpose.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JS -->
-    <script src="js/main.js"></script>
+    <script>
+        // Interactive Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // Glow Follow
+            window.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+                document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+                document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+            });
+
+            // Scroll Reveal
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Form Handling
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const btn = form.querySelector('.btn-send');
+                    btn.innerText = 'Transmitting...';
+                    setTimeout(() => {
+                        btn.innerText = 'Message Received';
+                        btn.style.background = '#00ffa3';
+                        document.getElementById('form-status').innerText = 'Thank you. Our team will contact you shortly.';
+                    }, 1500);
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
