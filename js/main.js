@@ -1,162 +1,104 @@
 /* 
-    Cortenity Brand Portfolio JS (Ultra-Premium Core)
-    Includes: Cursor Magnetic Glow, Cross-Section Reveals, Form Handling
+    Cortenity AI Tools Directory - Interactivity Engine
+    Handles cursor glow, scroll reveals, and directory-specific UI logic.
 */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Cursor Magnetic Glow
-    // Tracks the mouse and updates CSS variables for the radial gradient background
-    const updateCursorGlow = () => {
-        const glow = document.querySelector('.cursor-glow');
-        if (!glow) return;
+    // 1. Premium Cursor Glow Follower
+    const setGlowPosition = (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+        document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+    };
+    window.addEventListener('mousemove', setGlowPosition);
 
-        window.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-
-            document.documentElement.style.setProperty('--mouse-x', `${x}%`);
-            document.documentElement.style.setProperty('--mouse-y', `${y}%`);
-        });
+    // 2. Intersection Observer for High-Quality Reveals
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
 
-    // 2. Intersection Observer for Scroll Reveals
-    // Triggers animations when sections enter the viewport
-    const initScrollReveals = () => {
-        const options = {
-            root: null,
-            threshold: 0.15,
-            rootMargin: "0px 0px -100px 0px" // Trigger slightly before element is fully visible
-        };
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    // Once revealed, we don't necessarily need to hide it again
-                    // unless we want a repeating entrance animation.
-                }
-            });
-        }, options);
-
-        const targets = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
-        targets.forEach(t => revealObserver.observe(t));
-    };
-
-    // 3. Smooth Magnetic Scrolling
-    const initSmoothScroll = () => {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    e.preventDefault();
-
-                    // Close mobile menu if open
-                    document.body.classList.remove('mobile-active');
-
-                    const headerHeight = document.querySelector('.navbar').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    };
-
-    // 4. Navbar Active State & Shadow
-    const handleNavbarEffects = () => {
-        const nav = document.querySelector('.navbar');
-        const sections = document.querySelectorAll('section, header');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        window.addEventListener('scroll', () => {
-            // Shadow on scroll
-            if (window.scrollY > 50) {
-                nav.style.padding = '15px 0';
-                nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
-            } else {
-                nav.style.padding = '25px 0';
-                nav.style.boxShadow = 'none';
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: stop observing once revealed for performance
+                // revealObserver.unobserve(entry.target); 
             }
-
-            // Active Class Logic
-            let current = "";
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
         });
-    };
+    }, revealOptions);
 
-    // 5. Contact Form Simulation
-    const initContactForm = () => {
-        const form = document.getElementById('contact-form');
-        const status = document.getElementById('form-status');
+    document.querySelectorAll('.reveal').forEach(el => {
+        revealObserver.observe(el);
+    });
 
-        if (form) {
-            form.addEventListener('submit', (e) => {
+    // 3. Search Bar Teaser Interactivity
+    const searchInput = document.querySelector('.search-teaser input');
+    if (searchInput) {
+        searchInput.addEventListener('click', () => {
+            searchInput.placeholder = "Full search engine coming soon...";
+            setTimeout(() => {
+                searchInput.placeholder = "Search 500+ tools, prompts, products...";
+            }, 2000);
+        });
+    }
+
+    // 4. Submission Form Success Simulation
+    const submitForm = document.getElementById('submit-form');
+    if (submitForm) {
+        submitForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = submitForm.querySelector('.btn-submit');
+            const statusBox = document.getElementById('status');
+
+            btn.innerText = 'Transmitting Data...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerText = 'Submission Received';
+                btn.style.background = 'var(--accent-secondary)';
+                btn.style.color = '#000';
+                statusBox.innerHTML = 'Thank you! Your tool has been submitted for review. High-quality prompts and guides are featured weekly.';
+                submitForm.reset();
+            }, 1500);
+        });
+    }
+
+    // 5. Smooth Scroll for Navigation Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
                 e.preventDefault();
-                const submitBtn = form.querySelector('button');
-                const originalContent = submitBtn.innerHTML;
+                const navHeight = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navHeight;
 
-                // Loading State
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<span class="loading-dot"></span> Processing...';
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
 
-                setTimeout(() => {
-                    // Success State
-                    submitBtn.style.background = 'var(--accent-green)';
-                    submitBtn.style.color = '#000';
-                    submitBtn.innerHTML = 'Message Sent Successfully';
-
-                    status.innerHTML = '<p style="color: var(--accent-green); text-align: center; margin-top: 15px;">We have received your message and will get back to you shortly.</p>';
-
-                    form.reset();
-
-                    setTimeout(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalContent;
-                        submitBtn.style.background = '';
-                        submitBtn.style.color = '';
-                        status.innerHTML = '';
-                    }, 5000);
-                }, 2000);
-            });
+    // 6. Navigation Background Morph on Scroll
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 30) {
+            navbar.style.padding = "18px 0";
+            navbar.style.background = "rgba(3, 3, 3, 0.98)";
+            navbar.style.boxShadow = "0 10px 40px rgba(0,0,0,0.4)";
+        } else {
+            navbar.style.padding = "25px 0";
+            navbar.style.background = "var(--bg-nav)";
+            navbar.style.boxShadow = "none";
         }
-    };
+    });
 
-    // 6. Mobile Menu Toggle
-    const initMobileMenu = () => {
-        const toggle = document.getElementById('mobile-menu');
-        const body = document.body;
-
-        if (toggle) {
-            toggle.addEventListener('click', () => {
-                body.classList.toggle('mobile-active');
-            });
-        }
-    };
-
-    // Power Up
-    updateCursorGlow();
-    initScrollReveals();
-    initSmoothScroll();
-    handleNavbarEffects();
-    initContactForm();
-    initMobileMenu();
 });

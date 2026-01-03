@@ -5,19 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Cortenity: Ultimate Product-Driven Studio Identity -->
-    <title>Cortenity | Architecting Independent Digital Platforms</title>
-    <meta name="title" content="Cortenity | Architecting Independent Digital Platforms">
+    <!-- Cortenity: Parent Brand & Product Architect -->
+    <title>Cortenity | Parent Company for AI, Commerce & Digital Products</title>
+    <meta name="title" content="Cortenity | Parent Company for AI, Commerce & Digital Products">
     <meta name="description"
-        content="Cortenity is a product-driven digital studio that designs, launches, and scales specialized platforms and focused tools for creators, researchers, and explorers.">
-    <link rel="canonical" href="https://cortenity.com/">
+        content="Cortenity is the parent company behind focused digital platforms including AI Art Revolution, Best of Trend, and upcoming ventures in gaming and social.">
 
-    <!-- Social Graphs -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cortenity.com/">
-    <meta property="og:title" content="Cortenity — Product-Driven Digital Studio">
+    <meta property="og:title" content="Cortenity — Parent Brand Architecture">
     <meta property="og:description"
-        content="Independent platforms and specialized tools built with clarity, performance, and utility.">
+        content="Building focused digital products across AI, commerce, gaming, and social.">
     <meta property="og:image"
         content="assets/images/Cortenity.com image by Subhra Prakash Mohanty as AI Artz - Black without background.webp">
 
@@ -28,34 +27,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Editorial Styling System -->
     <style>
         :root {
-            --bg-deep: #050505;
-            --bg-surface: rgba(20, 20, 20, 0.4);
+            --bg-master: #050505;
+            --bg-card: rgba(20, 20, 20, 0.4);
             --bg-nav: rgba(5, 5, 5, 0.95);
-            --text-main: #f9fafb;
-            --text-sub: #9ca3af;
-            --text-dim: #4b5563;
-            --accent-glow: rgba(0, 150, 255, 0.12);
+            --text-prim: #ffffff;
+            --text-sec: #a1a1aa;
+            --text-dim: #52525b;
+            --accent-glow: rgba(0, 150, 255, 0.15);
             --accent-brand: #0096ff;
-            --accent-success: #3dec97;
-            --accent-experimental: #facc15;
-            --font-h: 'Outfit', sans-serif;
-            --font-b: 'Inter', sans-serif;
+            --accent-live: #22c55e;
+            --accent-dev: #f59e0b;
             --mouse-x: 50%;
             --mouse-y: 50%;
-            --transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             --radius-xl: 32px;
-            --radius-lg: 16px;
             --border: 1px solid rgba(255, 255, 255, 0.08);
-            --container-w: 1300px;
+            --font-h: 'Outfit', sans-serif;
+            --font-b: 'Inter', sans-serif;
         }
 
-        /* Core Reset */
         * {
             margin: 0;
             padding: 0;
@@ -64,8 +59,8 @@
 
         html {
             scroll-behavior: smooth;
-            background-color: var(--bg-deep);
-            color: var(--text-main);
+            background-color: var(--bg-master);
+            color: var(--text-prim);
             font-family: var(--font-b);
             overflow-x: hidden;
         }
@@ -80,12 +75,8 @@
             transition: var(--transition);
         }
 
-        ul {
-            list-style: none;
-        }
-
-        /* Background Effects */
-        .glow-field {
+        /* Background System */
+        .mesh-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -93,10 +84,10 @@
             height: 100%;
             pointer-events: none;
             z-index: -1;
-            background: radial-gradient(1000px circle at var(--mouse-x) var(--mouse-y), var(--accent-glow), transparent 85%);
+            background: radial-gradient(1200px circle at var(--mouse-x) var(--mouse-y), var(--accent-glow), transparent 80%);
         }
 
-        .noise-layer {
+        .noise {
             position: fixed;
             top: 0;
             left: 0;
@@ -104,13 +95,12 @@
             height: 100%;
             pointer-events: none;
             z-index: 9999;
-            opacity: 0.04;
+            opacity: 0.03;
             background: url('https://grainy-gradients.vercel.app/noise.svg');
-            filter: contrast(120%);
         }
 
         .container {
-            max-width: var(--container-w);
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -123,9 +113,9 @@
             width: 100%;
             z-index: 1000;
             padding: 30px 0;
-            background: var(--bg-nav);
-            backdrop-filter: blur(25px);
             border-bottom: var(--border);
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
             transition: var(--transition);
         }
 
@@ -145,8 +135,8 @@
             align-items: center;
             gap: 14px;
             font-family: var(--font-h);
-            font-weight: 700;
-            font-size: 1.6rem;
+            font-weight: 800;
+            font-size: 1.7rem;
             letter-spacing: -1.5px;
         }
 
@@ -163,20 +153,32 @@
         .nav-links a {
             font-size: 0.85rem;
             font-weight: 500;
-            color: var(--text-sub);
+            color: var(--text-sec);
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
         .nav-links a:hover {
-            color: var(--text-main);
+            color: var(--text-prim);
         }
 
-        .nav-active {
-            color: var(--text-main) !important;
+        .btn-cta {
+            padding: 12px 28px;
+            background: #fff;
+            color: #000;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Layout Units */
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sections */
         section {
             padding: 150px 0;
         }
@@ -192,22 +194,17 @@
             transform: translateY(0);
         }
 
-        .delay-1 {
-            transition-delay: 0.15s;
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
         }
 
-        .delay-2 {
-            transition-delay: 0.3s;
-        }
-
-        .tagline {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: var(--accent-brand);
-            letter-spacing: 5px;
-            font-weight: 800;
-            margin-bottom: 25px;
-            display: block;
+        .hero-content {
+            max-width: 1000px;
         }
 
         .h-hero {
@@ -217,296 +214,229 @@
             letter-spacing: -4px;
             font-weight: 800;
             margin-bottom: 40px;
-            background: linear-gradient(180deg, #fff 40%, rgba(255, 255, 255, 0.25) 100%);
+            background: linear-gradient(180deg, #fff 40%, rgba(255, 255, 255, 0.2) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .p-lead {
+            font-size: 1.6rem;
+            color: var(--text-sec);
+            font-weight: 300;
+            line-height: 1.5;
+            margin-bottom: 50px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-ghost {
+            padding: 20px 40px;
+            border: var(--border);
+            border-radius: 12px;
+            font-weight: 600;
+            font-family: var(--font-h);
+            font-size: 1.1rem;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #fff;
+        }
+
+        /* Ventures Grid */
         .h-section {
             font-family: var(--font-h);
             font-size: 4rem;
             letter-spacing: -2px;
-            margin-bottom: 30px;
-            line-height: 1.1;
+            margin-bottom: 60px;
         }
 
-        .p-lead {
-            font-size: 1.6rem;
-            color: var(--text-sub);
-            max-width: 850px;
-            font-weight: 300;
-            line-height: 1.4;
-        }
-
-        /* Hero */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-        }
-
-        /* Domain Grid */
-        .grid-domains {
+        .venture-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            margin-top: 50px;
         }
 
-        .domain-card {
-            background: var(--bg-surface);
-            padding: 50px 40px;
+        .venture-card {
+            background: var(--bg-card);
             border-radius: var(--radius-xl);
             border: var(--border);
-            backdrop-filter: blur(10px);
+            padding: 50px;
             transition: var(--transition);
-        }
-
-        .domain-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .domain-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            display: block;
-            filter: grayscale(1);
-        }
-
-        .domain-card h3 {
-            font-family: var(--font-h);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .domain-card p {
-            color: var(--text-sub);
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        /* Platforms: Product Storytelling */
-        .platform-wrap {
             display: flex;
             flex-direction: column;
-            gap: 180px;
         }
 
-        .platform-entry {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 100px;
-            align-items: center;
-        }
-
-        .platform-entry.rev {
-            direction: rtl;
-        }
-
-        .platform-entry.rev .platform-text {
-            direction: ltr;
-        }
-
-        .platform-media {
-            position: relative;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            border: var(--border);
-            background: #000;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-        }
-
-        .platform-media img {
-            width: 100%;
-            display: block;
-            transition: var(--transition);
-            opacity: 0.85;
-        }
-
-        .platform-entry:hover .platform-media img {
-            transform: scale(1.03);
-            opacity: 1;
-        }
-
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            border: var(--border);
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        .status-live {
-            color: var(--accent-success);
-            border-color: rgba(61, 236, 151, 0.2);
-        }
-
-        .status-exp {
-            color: var(--accent-experimental);
-            border-color: rgba(250, 204, 21, 0.2);
-        }
-
-        .platform-text h2 {
-            font-family: var(--font-h);
-            font-size: 3.8rem;
-            letter-spacing: -2.5px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        .platform-intro {
-            font-size: 1.3rem;
-            color: var(--text-sub);
-            margin-bottom: 40px;
-            font-weight: 300;
-            line-height: 1.5;
-        }
-
-        /* Bifurcation: Resources vs Tools */
-        .meta-layer {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 35px;
-        }
-
-        .meta-group h4 {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .meta-group h4::after {
-            content: "";
-            flex: 1;
-            height: 1px;
+        .venture-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .feature-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .f-pill {
-            padding: 9px 20px;
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            padding: 6px 14px;
             border-radius: 100px;
-            background: rgba(255, 255, 255, 0.02);
-            border: var(--border);
-            font-size: 0.9rem;
-            font-weight: 500;
-            font-family: var(--font-h);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .tool-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .status-live {
+            color: var(--accent-live);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .status-dev {
+            color: var(--accent-dev);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .venture-card h3 {
+            font-family: var(--font-h);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .venture-desc {
+            color: var(--text-sec);
+            line-height: 1.6;
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .venture-bullets {
+            margin-bottom: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+        }
+
+        .v-bullet {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-sec);
+            margin-bottom: 12px;
+        }
+
+        .v-bullet::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-brand);
+        }
+
+        .venture-actions {
+            margin-top: auto;
+            display: flex;
             gap: 15px;
         }
 
-        .t-card {
-            padding: 25px;
-            border-radius: var(--radius-lg);
-            background: rgba(0, 150, 255, 0.03);
-            border: 1px solid rgba(0, 150, 255, 0.1);
+        .btn-card {
+            flex: 1;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-family: var(--font-h);
+            text-align: center;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--accent-brand);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: var(--border);
+        }
+
+        .btn-disabled {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-dim);
+            border: var(--border);
+            cursor: not-allowed;
+        }
+
+        /* Tools Subsection */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: var(--border);
+            border-radius: 20px;
+            padding: 35px;
             transition: var(--transition);
         }
 
-        .t-card:hover {
-            transform: scale(1.02);
-            background: rgba(0, 150, 255, 0.06);
+        .tool-card:hover {
             border-color: var(--accent-brand);
+            background: rgba(0, 150, 255, 0.05);
         }
 
-        .t-card strong {
+        .tool-card span {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
             display: block;
-            font-size: 1.05rem;
-            color: #fff;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        .tool-card h4 {
             font-family: var(--font-h);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
         }
 
-        .t-card span {
-            font-size: 0.85rem;
-            color: var(--text-sub);
-            line-height: 1.4;
-            display: block;
+        .tool-card p {
+            font-size: 0.95rem;
+            color: var(--text-sec);
+            line-height: 1.5;
             font-weight: 300;
+            margin-bottom: 25px;
         }
 
-        /* Philosophy & Mission */
-        .mission {
-            text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
+        /* About & Mission */
+        .about-wrap {
+            max-width: 900px;
         }
 
-        .mission-text {
+        .p-about {
             font-size: 2.2rem;
-            line-height: 1.35;
-            color: var(--text-sub);
+            line-height: 1.4;
+            color: var(--text-sec);
             font-weight: 300;
         }
 
-        .mission-text span {
+        .p-about span {
             color: #fff;
             font-weight: 600;
         }
 
-        /* Roadmap */
-        .roadmap-wrap {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            margin-top: 60px;
-        }
-
-        .roadmap-box {
-            padding: 45px 35px;
-            background: var(--bg-surface);
-            border-radius: var(--radius-xl);
-            border: var(--border);
-            position: relative;
-        }
-
-        .phase-mark {
-            font-size: 0.7rem;
-            color: var(--text-dim);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .roadmap-box h5 {
-            font-family: var(--font-h);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .roadmap-box p {
-            font-size: 0.95rem;
-            color: var(--text-sub);
-            line-height: 1.5;
-            font-weight: 300;
-        }
-
-        /* Contact Section */
+        /* Contact Form */
         .contact-mask {
             background: linear-gradient(135deg, #0a0a0a, #000);
             padding: 100px;
@@ -514,22 +444,6 @@
             border: var(--border);
             position: relative;
             overflow: hidden;
-        }
-
-        .contact-mask::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .contact-content {
-            position: relative;
-            z-index: 2;
         }
 
         .form-grid {
@@ -540,6 +454,7 @@
         }
 
         input,
+        select,
         textarea {
             width: 100%;
             background: rgba(255, 255, 255, 0.02);
@@ -550,13 +465,16 @@
             font-family: var(--font-b);
             font-size: 1rem;
             outline: none;
-            transition: var(--transition);
         }
 
         input:focus,
-        textarea:focus {
+        select:focus {
             border-color: var(--accent-brand);
             background: rgba(255, 255, 255, 0.04);
+        }
+
+        option {
+            background: #000;
         }
 
         .btn-submit {
@@ -569,14 +487,8 @@
             font-weight: 800;
             font-family: var(--font-h);
             cursor: pointer;
-            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
         }
 
         /* Footer */
@@ -589,45 +501,59 @@
         .footer-main {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 100px;
+            margin-bottom: 80px;
         }
 
         .f-logo {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             font-family: var(--font-h);
             letter-spacing: -2px;
         }
 
-        .f-info {
-            max-width: 400px;
+        .f-nav {
+            display: flex;
+            gap: 60px;
         }
 
-        .f-info p {
-            margin-top: 15px;
-            color: var(--text-sub);
-            font-size: 1.2rem;
-            font-weight: 300;
+        .f-group h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            margin-bottom: 25px;
+        }
+
+        .f-group a {
+            display: block;
+            color: var(--text-sec);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .f-group a:hover {
+            color: #fff;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
             padding-top: 40px;
-            display: flex;
-            justify-content: space-between;
             color: var(--text-dim);
             font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
+        @media (max-width: 1100px) {
             .h-hero {
                 font-size: 4.5rem;
             }
 
-            .grid-domains,
-            .roadmap-wrap {
+            .venture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -645,13 +571,11 @@
                 font-size: 3.2rem;
             }
 
-            .platform-entry {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                text-align: center;
+            .section {
+                padding: 80px 0;
             }
 
-            .tool-grid {
+            .tools-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -663,236 +587,171 @@
                 grid-column: span 1;
             }
 
-            .roadmap-wrap {
-                grid-template-columns: 1fr;
-            }
-
             .footer-main {
                 flex-direction: column;
-                gap: 50px;
+                gap: 60px;
+            }
+
+            .f-nav {
+                flex-wrap: wrap;
+                gap: 40px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="noise-layer"></div>
-    <div class="glow-field" id="glow"></div>
+    <div class="noise"></div>
+    <div class="mesh-bg" id="glow"></div>
 
     <nav class="navbar" id="nav">
         <div class="container">
             <a href="#" class="nav-logo">
                 <img src="assets/images/Cortenity logo by Subhra Prakash Mohanty as AI Artz - Black without background.webp"
-                    alt="Cortenity Official Logo">
+                    alt="Cortenity Parent Brand">
                 <span>Cortenity</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#platforms">Platforms</a></li>
-                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#ventures">Ventures</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn-cta">Partner With Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <header id="hero" class="hero">
+    <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="tagline reveal">Self-Owned Digital Studio</span>
-                <h1 class="h-hero reveal">Architecting Independent Digital Platforms</h1>
-                <p class="p-lead reveal delay-1">Cortenity is a product-driven studio that designs, launches, and scales
-                    specialized niche ecosystems. We prioritize clarity, performance, and long-term utility across all
-                    our digital creations.</p>
+                <h1 class="h-hero reveal">Cortenity builds focused digital products.</h1>
+                <p class="p-lead reveal delay-1">The parent brand architecting high-utility platforms across Artificial
+                    Intelligence, E-Commerce, Gaming, and Social sharing.</p>
+                <div class="hero-actions reveal delay-2">
+                    <a href="#ventures" class="btn-cta" style="padding: 20px 40px; font-size: 1.1rem;">Explore
+                        Ventures</a>
+                    <a href="#contact" class="btn-ghost">Contact / Partnerships</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <section id="domains">
+    <section id="ventures">
         <div class="container">
-            <span class="tagline reveal">Focus Areas</span>
-            <div class="grid-domains">
-                <article class="domain-card reveal">
-                    <span class="icon">✨</span>
-                    <h3>Generative Intelligence</h3>
-                    <p>Building high-fidelity resources and workflow tools for the expanding frontier of AI artistry.
-                    </p>
+            <h2 class="h-section reveal">Our Ventures</h2>
+            <div class="venture-grid">
+
+                <!-- Venture 1: AI Art Revolution -->
+                <article class="venture-card reveal">
+                    <div class="status-badge status-live">Live Ecosystem</div>
+                    <h3>AI Art Revolution</h3>
+                    <p class="venture-desc">A specialized destination for the generative frontier. We provide the tools,
+                        tutorials, and prompt libraries that empower the next generation of AI artists.</p>
+                    <div class="venture-bullets">
+                        <div class="v-bullet">AI Tool Ecosystem</div>
+                        <div class="v-bullet">High-Fidelity Prompt Libraries</div>
+                        <div class="v-bullet">AI News & Expert Guides</div>
+                    </div>
+                    <div class="venture-actions">
+                        <a href="https://aiartrevolution.com" target="_blank" class="btn-card btn-primary">Visit
+                            Website</a>
+                        <a href="#tools" class="btn-card btn-secondary">View Tools</a>
+                    </div>
                 </article>
-                <article class="domain-card reveal delay-1">
-                    <span class="icon">🔍</span>
-                    <h3>Product Discovery</h3>
-                    <p>Architecting e-commerce hubs that emphasize manual curation and data-driven marketplace insights.
-                    </p>
+
+                <!-- Venture 2: Best of Trend -->
+                <article class="venture-card reveal delay-1">
+                    <div class="status-badge status-live">Live Operational</div>
+                    <h3>Best of Trend</h3>
+                    <p class="venture-desc">E-commerce discovery refined. We cut through the noise of global
+                        marketplaces to surface the highest quality products through expert research and curation.</p>
+                    <div class="venture-bullets">
+                        <div class="v-bullet">Category-Based Top Picks</div>
+                        <div class="v-bullet">E-commerce Market Research</div>
+                        <div class="v-bullet">Buyer-Focused Comparisons</div>
+                    </div>
+                    <div class="venture-actions">
+                        <a href="https://bestoftrend.com" target="_blank" class="btn-card btn-primary">Visit Website</a>
+                        <div class="btn-card btn-disabled" style="font-size: 0.7rem;">Upcoming: Product Finder</div>
+                    </div>
                 </article>
-                <article class="domain-card reveal delay-2">
-                    <span class="icon">🕹️</span>
-                    <h3>Interactive Media</h3>
-                    <p>Exploring browser-native environments for instant-play gaming and choice-driven digital books.
-                    </p>
+
+                <!-- Venture 3: Cortenity Gaming -->
+                <article class="venture-card reveal">
+                    <div class="status-badge status-dev">Under Development</div>
+                    <h3>Cortenity Gaming</h3>
+                    <p class="venture-desc">The future of browser-native play. Building an integrated environment for
+                        gaming articles, interactive stories, and lightweight instant-play experiences.</p>
+                    <div class="venture-bullets">
+                        <div class="v-bullet">Gaming Intelligence & Articles</div>
+                        <div class="v-bullet">Integrated Instant-Play Games</div>
+                        <div class="v-bullet">Interactive Narrative Platform</div>
+                    </div>
+                    <div class="venture-actions">
+                        <div class="btn-card btn-disabled">Coming Soon</div>
+                    </div>
                 </article>
+
+                <!-- Venture 4: Twispeer -->
+                <article class="venture-card reveal delay-1">
+                    <div class="status-badge status-dev">Under Development</div>
+                    <h3>Twispeer</h3>
+                    <p class="venture-desc">An anonymous sanctuary for thought sharing. A privacy-first social platform
+                        focused on simple expression and community-driven knowledge exchange.</p>
+                    <div class="venture-bullets">
+                        <div class="v-bullet">Anonymous Thought Posting</div>
+                        <div class="v-bullet">Privacy-First Data Architecture</div>
+                        <div class="v-bullet">Simple, Minimal Expression</div>
+                    </div>
+                    <div class="venture-actions">
+                        <div class="btn-card btn-disabled">Coming Soon</div>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
 
-    <section id="platforms">
+    <section id="tools">
         <div class="container">
-            <span class="tagline reveal">The Ecosystem</span>
+            <h2 class="h-section reveal">Integrated Utilities</h2>
+            <div class="tools-grid">
 
-            <div class="platform-wrap">
-
-                <!-- Platform 1: AI Art Revolution -->
-                <div class="platform-entry reveal">
-                    <div class="platform-media">
-                        <img src="assets/images/AI Art Revolution Social Image by Subhra Prakash Mohanty as AI Artz.webp"
-                            alt="AI Art Revolution Resource Platform Preview">
-                    </div>
-                    <div class="platform-text">
-                        <div class="status-pill status-live">Live Resource Platform</div>
-                        <h2>AI Art Revolution</h2>
-                        <p class="platform-intro">A dedicated educational hub for AI art creators. The platform provides
-                            in-depth guides, galleries, and advanced prompt engineering knowledge for digital artists
-                            and explorers.</p>
-
-                        <div class="meta-layer">
-                            <div class="meta-group">
-                                <h4>Platform Resources</h4>
-                                <div class="feature-stack">
-                                    <span class="f-pill">Guides & Workflows</span>
-                                    <span class="f-pill">Art Style Breakdowns</span>
-                                    <span class="f-pill">Prompt Tech Repositories</span>
-                                </div>
-                            </div>
-                            <div class="meta-group">
-                                <h4>Integrated AI Tools</h4>
-                                <div class="tool-grid">
-                                    <div class="t-card">
-                                        <strong>Mood-to-AI Generator</strong>
-                                        <span>Convert emotion into prompt structure.</span>
-                                    </div>
-                                    <div class="t-card">
-                                        <strong>Realistic Photography</strong>
-                                        <span>High-fidelity lifelike prompt engine.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tool-card reveal">
+                    <span>AI Art Revolution</span>
+                    <h4>Mood to AI Prompt</h4>
+                    <p>Convert raw emotions and concepts into structured, professional AI prompts.</p>
+                    <a href="https://aiartrevolution.com/mood-to-ai-prompt-generator/" target="_blank"
+                        class="btn-card btn-secondary" style="display: block; padding: 12px;">Launch Tool</a>
                 </div>
 
-                <!-- Platform 2: Best of Trend -->
-                <div class="platform-entry reveal rev">
-                    <div class="platform-media">
-                        <img src="assets/images/Best of Trend Social Image by Subhra Prakash Mohanty as AI Artz.webp"
-                            alt="Best of Trend Discovery Platform Preview">
-                    </div>
-                    <div class="platform-text">
-                        <div class="status-pill status-live">Live Operational Hub</div>
-                        <h2>Best of Trend</h2>
-                        <p class="platform-intro">A curated e-commerce discovery hub that simplifies global market
-                            research. We emphasize signal over noise through manual expert curation and data-driven
-                            product insights.</p>
-
-                        <div class="meta-layer">
-                            <div class="meta-group">
-                                <h4>Website Features</h4>
-                                <div class="feature-stack">
-                                    <span class="f-pill">Global Trend Intelligence</span>
-                                    <span class="f-pill">Retailer Transparency</span>
-                                    <span class="f-pill">Data-Driven Reports</span>
-                                </div>
-                            </div>
-                            <div class="meta-group">
-                                <h4>Integrated Search Tools</h4>
-                                <div class="tool-grid">
-                                    <div class="t-card">
-                                        <strong>Country-Based Search</strong>
-                                        <span>Localized trending product discovery.</span>
-                                    </div>
-                                    <div class="t-card" style="opacity: 0.7;">
-                                        <strong>Best Seller Tracker <span class="status-exp"
-                                                style="font-size: 0.6rem; border: none;">Build</span></strong>
-                                        <span>Real-time tracking of top retail items.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tool-card reveal delay-1">
+                    <span>AI Art Revolution</span>
+                    <h4>Realistic AI Photo</h4>
+                    <p>Specific engine for generating lifelike photography with complex lighting and depth.</p>
+                    <a href="https://aiartrevolution.com/realistic-ai-photography-prompt-generator/" target="_blank"
+                        class="btn-card btn-secondary" style="display: block; padding: 12px;">Launch Tool</a>
                 </div>
 
-                <!-- Platform 3: Cortenity Gaming -->
-                <div class="platform-entry reveal">
-                    <div class="platform-media">
-                        <img src="assets/images/platform-gaming.png"
-                            alt="Cortenity Gaming Experimental Sandbox Preview">
-                    </div>
-                    <div class="platform-text">
-                        <div class="status-pill status-exp">Experimental Sandbox</div>
-                        <h2>Cortenity Gaming</h2>
-                        <p class="platform-intro">A browser-native interactive media sandbox focused on lightweight,
-                            accessible experiences. This platform serves as a controlled environment for experimentation
-                            in interactive design and instant playability.</p>
-
-                        <div class="meta-layer">
-                            <div class="meta-group">
-                                <h4>Core Concepts</h4>
-                                <div class="feature-stack">
-                                    <span class="f-pill">Choice-Driven Digital Books</span>
-                                    <span class="f-pill">Instant Narrative Play</span>
-                                    <span class="f-pill">Minimalist Game Mechanics</span>
-                                </div>
-                            </div>
-                            <div class="meta-group">
-                                <h4>In R&D</h4>
-                                <div class="tool-grid">
-                                    <div class="t-card" style="flex: 1;">
-                                        <strong>Interactive Story Engine</strong>
-                                        <span>Backend logic for narrative branching.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tool-card reveal delay-2">
+                    <span>Best of Trend</span>
+                    <h4>Product Finder</h4>
+                    <p>Country-specific search utility for identifying top-trending e-commerce items.</p>
+                    <div class="btn-card btn-disabled" style="display: block; padding: 12px;">In Development</div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="philosophy">
+    <section id="about">
         <div class="container">
-            <div class="mission reveal">
-                <span class="tagline">Our Philosophy</span>
-                <p class="mission-text">Cortenity is not an agency. We are a <span>product studio</span> that designs,
-                    launches, and operates our own digital verticals. We believe in <span>restraint</span>,
-                    <span>purposeful building</span>, and architectures that deliver <span>clarity before noise</span>.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="roadmap">
-        <div class="container">
-            <span class="tagline reveal">Roadmap</span>
-            <div class="roadmap-wrap">
-                <div class="roadmap-box reveal">
-                    <span class="phase-mark">Phase 01</span>
-                    <h5>Knowledge Expansion</h5>
-                    <p>Deeper workflow documentation and style repositories for AI Art Revolution.</p>
-                </div>
-                <div class="roadmap-box reveal delay-1">
-                    <span class="phase-mark">Phase 02</span>
-                    <h5>Market Intelligence</h5>
-                    <p>Automated best-seller tracking and localized intelligence for Best of Trend.</p>
-                </div>
-                <div class="roadmap-box reveal delay-2">
-                    <span class="phase-mark">Phase 03</span>
-                    <h5>Interactive Beta</h5>
-                    <p>First public rollout of browser-native narrative experiments under Cortenity Gaming.</p>
-                </div>
-                <div class="roadmap-box reveal delay-1">
-                    <span class="phase-mark">Future</span>
-                    <h5>The Multi-Vertical Orbit</h5>
-                    <p>Researching new digital domains where specialized tools can empower users.</p>
-                </div>
+            <div class="about-wrap">
+                <h2 class="h-section reveal">Our Mission</h2>
+                <p class="p-about reveal">One <span>Parent Brand</span>, multiple focused products. Cortenity exists to
+                    build <span>niche-focused platforms</span> that solve specific needs rather than cluttering the
+                    digital landscape. We believe in high-signal architecture and <span>purposeful digital
+                        ownership</span>.</p>
             </div>
         </div>
     </section>
@@ -900,19 +759,26 @@
     <section id="contact">
         <div class="container">
             <div class="contact-mask reveal">
-                <div class="contact-content">
-                    <h1 class="h-section">Connect with Cortenity</h1>
-                    <p class="p-lead">Inquiries regarding our platforms, tools, or studio philosophy.</p>
-                    <form id="contact-form" class="form-grid">
-                        <input type="text" placeholder="Full Name" required>
-                        <input type="email" placeholder="Email Address" required>
-                        <textarea placeholder="Message..." rows="6" style="grid-column: span 2;" required></textarea>
-                        <button type="submit" class="btn-submit">Dispatch Inquiry</button>
-                        <div id="status"
-                            style="grid-column: span 2; margin-top: 20px; text-align: center; color: var(--accent-success); font-weight: 700;">
-                        </div>
-                    </form>
-                </div>
+                <h2 class="h-section">Partnerships & Collaborations</h2>
+                <p class="p-lead">We invite brand partnerships, tool collaborations, and sponsorships across our live
+                    ecosystems.</p>
+                <form id="contact-form" class="form-grid">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <select required>
+                        <option value="" disabled selected>Reason for Inquiry</option>
+                        <option value="partnership">Venture Partnership</option>
+                        <option value="sponsorship">Sponsorship / Ad Placement</option>
+                        <option value="feedback">Product Feedback</option>
+                        <option value="other">Other Inquiry</option>
+                    </select>
+                    <input type="text" placeholder="Subject">
+                    <textarea placeholder="Message..." rows="6" style="grid-column: span 2;" required></textarea>
+                    <button type="submit" class="btn-submit">Dispatch Inquiry</button>
+                    <div id="status"
+                        style="grid-column: span 2; margin-top: 20px; text-align: center; color: var(--accent-live); font-weight: 700;">
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -921,65 +787,33 @@
         <div class="container">
             <div class="footer-main">
                 <div class="f-logo">Cortenity</div>
-                <div class="f-info">
-                    <p>Architecting independent niche digital ecosystems with clarity and purpose.</p>
+                <div class="f-nav">
+                    <div class="f-group">
+                        <h5>Live Ventures</h5>
+                        <a href="https://aiartrevolution.com" target="_blank">AI Art Revolution</a>
+                        <a href="https://bestoftrend.com" target="_blank">Best of Trend</a>
+                    </div>
+                    <div class="f-group">
+                        <h5>Directory</h5>
+                        <a href="#ventures">Our Ventures</a>
+                        <a href="#tools">Our Tools</a>
+                        <a href="#about">About</a>
+                    </div>
+                    <div class="f-group">
+                        <h5>Connect</h5>
+                        <a href="#contact">Partnerships</a>
+                        <a href="mailto:hello@cortenity.com">hello@cortenity.com</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Cortenity Studio. All rights reserved.</p>
-                <div style="display: flex; gap: 30px;">
-                    <a href="#hero">Home</a>
-                    <a href="#platforms">Platforms</a>
-                    <a href="#philosophy">Philosophy</a>
-                </div>
+                <p>&copy; 2026 Cortenity. All rights reserved.</p>
+                <p>Designed for High-Signal Performance.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mouse Tracker
-            window.addEventListener('mousemove', (e) => {
-                const x = (e.clientX / window.innerWidth) * 100;
-                const y = (e.clientY / window.innerHeight) * 100;
-                document.documentElement.style.setProperty('--mouse-x', `${x}%`);
-                document.documentElement.style.setProperty('--mouse-y', `${y}%`);
-            });
-
-            // Scroll Reveal Observer
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-            // Nav Scroll Effect
-            const nav = document.getElementById('nav');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) nav.classList.add('scrolled');
-                else nav.classList.remove('scrolled');
-            });
-
-            // Form Logic
-            const form = document.getElementById('contact-form');
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const btn = form.querySelector('.btn-submit');
-                    btn.innerText = 'Transmitting...';
-                    setTimeout(() => {
-                        btn.innerText = 'Message Dispatch Successful';
-                        btn.style.background = 'var(--accent-success)';
-                        document.getElementById('status').innerText = 'Thank you. We will review your inquiry shortly.';
-                    }, 1400);
-                });
-            }
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
