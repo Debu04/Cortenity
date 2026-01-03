@@ -30,574 +30,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <style>
-        :root {
-            --bg-master: #050505;
-            --bg-card: rgba(20, 20, 20, 0.4);
-            --bg-nav: rgba(5, 5, 5, 0.95);
-            --text-prim: #ffffff;
-            --text-sec: #a1a1aa;
-            --text-dim: #52525b;
-            --accent-glow: rgba(0, 150, 255, 0.15);
-            --accent-brand: #0096ff;
-            --accent-live: #22c55e;
-            --accent-dev: #f59e0b;
-            --mouse-x: 50%;
-            --mouse-y: 50%;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            --radius-xl: 32px;
-            --border: 1px solid rgba(255, 255, 255, 0.08);
-            --font-h: 'Outfit', sans-serif;
-            --font-b: 'Inter', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            background-color: var(--bg-master);
-            color: var(--text-prim);
-            font-family: var(--font-b);
-            overflow-x: hidden;
-        }
-
-        body {
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        /* Background System */
-        .mesh-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            background: radial-gradient(1200px circle at var(--mouse-x) var(--mouse-y), var(--accent-glow), transparent 80%);
-        }
-
-        .noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.03;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 30px 0;
-            border-bottom: var(--border);
-            background: var(--bg-nav);
-            backdrop-filter: blur(20px);
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            padding: 18px 0;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            font-family: var(--font-h);
-            font-weight: 800;
-            font-size: 1.7rem;
-            letter-spacing: -1.5px;
-        }
-
-        .nav-logo img {
-            height: 34px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-sec);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-prim);
-        }
-
-        .btn-cta {
-            padding: 12px 28px;
-            background: #fff;
-            color: #000;
-            border-radius: 100px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-        }
-
-        /* Sections */
-        section {
-            padding: 150px 0;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 1000px;
-        }
-
-        .h-hero {
-            font-family: var(--font-h);
-            font-size: 6.5rem;
-            line-height: 0.95;
-            letter-spacing: -4px;
-            font-weight: 800;
-            margin-bottom: 40px;
-            background: linear-gradient(180deg, #fff 40%, rgba(255, 255, 255, 0.2) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .p-lead {
-            font-size: 1.6rem;
-            color: var(--text-sec);
-            font-weight: 300;
-            line-height: 1.5;
-            margin-bottom: 50px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .btn-ghost {
-            padding: 20px 40px;
-            border: var(--border);
-            border-radius: 12px;
-            font-weight: 600;
-            font-family: var(--font-h);
-            font-size: 1.1rem;
-        }
-
-        .btn-ghost:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: #fff;
-        }
-
-        /* Ventures Grid */
-        .h-section {
-            font-family: var(--font-h);
-            font-size: 4rem;
-            letter-spacing: -2px;
-            margin-bottom: 60px;
-        }
-
-        .venture-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .venture-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-xl);
-            border: var(--border);
-            padding: 50px;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .venture-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 25px;
-            padding: 6px 14px;
-            border-radius: 100px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .status-live {
-            color: var(--accent-live);
-            border-color: rgba(34, 197, 94, 0.3);
-        }
-
-        .status-dev {
-            color: var(--accent-dev);
-            border-color: rgba(245, 158, 11, 0.3);
-        }
-
-        .venture-card h3 {
-            font-family: var(--font-h);
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
-
-        .venture-desc {
-            color: var(--text-sec);
-            line-height: 1.6;
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .venture-bullets {
-            margin-bottom: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 30px;
-        }
-
-        .v-bullet {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-            color: var(--text-sec);
-            margin-bottom: 12px;
-        }
-
-        .v-bullet::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent-brand);
-        }
-
-        .venture-actions {
-            margin-top: auto;
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-card {
-            flex: 1;
-            padding: 18px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-family: var(--font-h);
-            text-align: center;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-primary {
-            background: var(--accent-brand);
-            color: #fff;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            border: var(--border);
-        }
-
-        .btn-disabled {
-            background: rgba(255, 255, 255, 0.02);
-            color: var(--text-dim);
-            border: var(--border);
-            cursor: not-allowed;
-        }
-
-        /* Tools Subsection */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .tool-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: var(--border);
-            border-radius: 20px;
-            padding: 35px;
-            transition: var(--transition);
-        }
-
-        .tool-card:hover {
-            border-color: var(--accent-brand);
-            background: rgba(0, 150, 255, 0.05);
-        }
-
-        .tool-card span {
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .tool-card h4 {
-            font-family: var(--font-h);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .tool-card p {
-            font-size: 0.95rem;
-            color: var(--text-sec);
-            line-height: 1.5;
-            font-weight: 300;
-            margin-bottom: 25px;
-        }
-
-        /* About & Mission */
-        .about-wrap {
-            max-width: 900px;
-        }
-
-        .p-about {
-            font-size: 2.2rem;
-            line-height: 1.4;
-            color: var(--text-sec);
-            font-weight: 300;
-        }
-
-        .p-about span {
-            color: #fff;
-            font-weight: 600;
-        }
-
-        /* Contact Form */
-        .contact-mask {
-            background: linear-gradient(135deg, #0a0a0a, #000);
-            padding: 100px;
-            border-radius: 40px;
-            border: var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 22px 28px;
-            border-radius: 12px;
-            color: #fff;
-            font-family: var(--font-b);
-            font-size: 1rem;
-            outline: none;
-        }
-
-        input:focus,
-        select:focus {
-            border-color: var(--accent-brand);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        option {
-            background: #000;
-        }
-
-        .btn-submit {
-            grid-column: span 2;
-            padding: 24px;
-            background: #fff;
-            color: #000;
-            border: none;
-            border-radius: 12px;
-            font-weight: 800;
-            font-family: var(--font-h);
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 100px 0 50px;
-            border-top: var(--border);
-            background: #000;
-        }
-
-        .footer-main {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 80px;
-        }
-
-        .f-logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            font-family: var(--font-h);
-            letter-spacing: -2px;
-        }
-
-        .f-nav {
-            display: flex;
-            gap: 60px;
-        }
-
-        .f-group h5 {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-dim);
-            margin-bottom: 25px;
-        }
-
-        .f-group a {
-            display: block;
-            color: var(--text-sec);
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-
-        .f-group a:hover {
-            color: #fff;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            padding-top: 40px;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        @media (max-width: 1100px) {
-            .h-hero {
-                font-size: 4.5rem;
-            }
-
-            .venture-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tools-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 25px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .h-hero {
-                font-size: 3.2rem;
-            }
-
-            .section {
-                padding: 80px 0;
-            }
-
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .btn-submit {
-                grid-column: span 1;
-            }
-
-            .footer-main {
-                flex-direction: column;
-                gap: 60px;
-            }
-
-            .f-nav {
-                flex-wrap: wrap;
-                gap: 40px;
-            }
-        }
-    </style>
+    <!-- External Styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -613,10 +47,10 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#ventures">Ventures</a></li>
-                <li><a href="#tools">Tools</a></li>
+                <li><a href="#category">Categories</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="btn-cta">Partner With Us</a></li>
+                <li><a href="#contact" class="btn-vibrant">Partner With Us</a></li>
             </ul>
         </div>
     </nav>
@@ -628,13 +62,69 @@
                 <p class="p-lead reveal delay-1">The parent brand architecting high-utility platforms across Artificial
                     Intelligence, E-Commerce, Gaming, and Social sharing.</p>
                 <div class="hero-actions reveal delay-2">
-                    <a href="#ventures" class="btn-cta" style="padding: 20px 40px; font-size: 1.1rem;">Explore
+                    <a href="#ventures" class="btn-vibrant" style="padding: 20px 40px; font-size: 1.1rem;">Explore
                         Ventures</a>
-                    <a href="#contact" class="btn-ghost">Contact / Partnerships</a>
+                    <a href="#roadmap" class="btn-ghost" style="padding: 20px 40px; font-size: 1.1rem;">View Roadmap</a>
                 </div>
             </div>
         </div>
     </header>
+
+    <section id="category" class="category-section">
+        <div class="container">
+            <h2 class="h-section reveal">Browse by Category</h2>
+            <div class="cat-grid">
+                <!-- Card 1: AI Image Generators -->
+                <article class="cat-card reveal">
+                    <span class="cat-icon">🪄</span>
+                    <h3>AI Image Generators</h3>
+                    <p>Mood-to-AI, Pet Portraits, Realistic Photo Prompts – via aiartrevolution.com</p>
+                    <span class="cat-meta" style="color: var(--accent-ai);">200+ PROMPTS AVAILABLE</span>
+                </article>
+
+                <!-- Card 2: Product Guides -->
+                <article class="cat-card reveal delay-1">
+                    <span class="cat-icon">🛒</span>
+                    <h3>Product Guides</h3>
+                    <p>Hydroponic Indoor Gardens, Air Purifiers, and Low-Maintenance Plants – via bestoftrend.com</p>
+                    <span class="cat-meta" style="color: var(--accent-trend);">50+ RESEARCH GUIDES</span>
+                </article>
+
+                <!-- Card 3: Prompt Packs -->
+                <a href="https://aiartz70.gumroad.com/" target="_blank" class="cat-card reveal delay-2"
+                    style="display: block; cursor: pointer;">
+                    <span class="cat-icon">✨</span>
+                    <h3>Prompt Packs</h3>
+                    <p>Midjourney Emotion Prompts, Seasonal Art, and high-fidelity Custom Styles.</p>
+                    <span class="cat-meta" style="color: var(--accent-live);">UPDATED WEEKLY</span>
+                </a>
+
+                <!-- Card 4: Wellness Tools -->
+                <article class="cat-card reveal">
+                    <span class="cat-icon">🪴</span>
+                    <h3>Wellness Tools</h3>
+                    <p>Home Air Quality trackers, Plant Care automation, and health-centric tech.</p>
+                    <span class="cat-meta">COMING SOON</span>
+                </article>
+
+                <!-- Card 5: Productivity AI -->
+                <article class="cat-card reveal delay-1">
+                    <span class="cat-icon">🚀</span>
+                    <h3>Productivity AI</h3>
+                    <p>Workflow automation, localized search engines, and resource organizers.</p>
+                    <span class="cat-meta">IN DEVELOPMENT</span>
+                </article>
+
+                <!-- Card 6: Digital Assets -->
+                <article class="cat-card reveal delay-2">
+                    <span class="cat-icon">📦</span>
+                    <h3>Digital Assets</h3>
+                    <p>Ready-to-use prompt libraries, high-res texture packs, and 3D assets.</p>
+                    <span class="cat-meta">PREMIUM PACKS</span>
+                </article>
+            </div>
+        </div>
+    </section>
 
     <section id="ventures">
         <div class="container">
@@ -643,68 +133,89 @@
 
                 <!-- Venture 1: AI Art Revolution -->
                 <article class="venture-card reveal">
-                    <div class="status-badge status-live">Live Ecosystem</div>
-                    <h3>AI Art Revolution</h3>
-                    <p class="venture-desc">A specialized destination for the generative frontier. We provide the tools,
-                        tutorials, and prompt libraries that empower the next generation of AI artists.</p>
-                    <div class="venture-bullets">
-                        <div class="v-bullet">AI Tool Ecosystem</div>
-                        <div class="v-bullet">High-Fidelity Prompt Libraries</div>
-                        <div class="v-bullet">AI News & Expert Guides</div>
-                    </div>
-                    <div class="venture-actions">
-                        <a href="https://aiartrevolution.com" target="_blank" class="btn-card btn-primary">Visit
-                            Website</a>
-                        <a href="#tools" class="btn-card btn-secondary">View Tools</a>
+                    <img src="assets/images/platform-ai.png" alt="AI Art Revolution" class="venture-image">
+                    <div class="venture-content">
+                        <div class="status-badge status-live">Live Ecosystem</div>
+                        <h3>AI Art Revolution</h3>
+                        <p class="venture-desc">A specialized destination for the generative frontier. We provide the
+                            tools,
+                            tutorials, and prompt libraries that empower the next generation of AI artists.</p>
+                        <div class="venture-bullets">
+                            <div class="v-bullet" style="color: var(--accent-ai);">Integrated: Mood to AI Prompt
+                                Generator</div>
+                            <div class="v-bullet" style="color: var(--accent-ai);">Integrated: Realistic AI Photography
+                            </div>
+                            <div class="v-bullet">AI News & Expert Guides</div>
+                        </div>
+                        <div class="venture-actions">
+                            <a href="https://aiartrevolution.com" target="_blank" class="btn-vibrant"
+                                style="background: var(--accent-ai); box-shadow: 0 0 20px rgba(0, 255, 163, 0.2);">Visit
+                                Website</a>
+                            <a href="https://aiartrevolution.com/mood-to-ai-prompt-generator/" target="_blank"
+                                class="btn-ghost" style="font-size: 0.75rem; padding: 10px 20px;">Direct Tool Access</a>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Venture 2: Best of Trend -->
                 <article class="venture-card reveal delay-1">
-                    <div class="status-badge status-live">Live Operational</div>
-                    <h3>Best of Trend</h3>
-                    <p class="venture-desc">E-commerce discovery refined. We cut through the noise of global
-                        marketplaces to surface the highest quality products through expert research and curation.</p>
-                    <div class="venture-bullets">
-                        <div class="v-bullet">Category-Based Top Picks</div>
-                        <div class="v-bullet">E-commerce Market Research</div>
-                        <div class="v-bullet">Buyer-Focused Comparisons</div>
-                    </div>
-                    <div class="venture-actions">
-                        <a href="https://bestoftrend.com" target="_blank" class="btn-card btn-primary">Visit Website</a>
-                        <div class="btn-card btn-disabled" style="font-size: 0.7rem;">Upcoming: Product Finder</div>
+                    <img src="assets/images/platform-trend.png" alt="Best of Trend" class="venture-image">
+                    <div class="venture-content">
+                        <div class="status-badge status-live">Live Operational</div>
+                        <h3>Best of Trend</h3>
+                        <p class="venture-desc">E-commerce discovery refined. We cut through the noise of global
+                            marketplaces to surface the highest quality products through expert research and curation.
+                        </p>
+                        <div class="venture-bullets">
+                            <div class="v-bullet" style="color: var(--accent-trend);">Feature: Regional Product Finder
+                            </div>
+                            <div class="v-bullet">E-commerce Market Research</div>
+                            <div class="v-bullet">Buyer-Focused Comparisons</div>
+                        </div>
+                        <div class="venture-actions">
+                            <a href="https://bestoftrend.com" target="_blank" class="btn-vibrant"
+                                style="background: var(--accent-trend); box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);">Visit
+                                Website</a>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Venture 3: Cortenity Gaming -->
                 <article class="venture-card reveal">
-                    <div class="status-badge status-dev">Under Development</div>
-                    <h3>Cortenity Gaming</h3>
-                    <p class="venture-desc">The future of browser-native play. Building an integrated environment for
-                        gaming articles, interactive stories, and lightweight instant-play experiences.</p>
-                    <div class="venture-bullets">
-                        <div class="v-bullet">Gaming Intelligence & Articles</div>
-                        <div class="v-bullet">Integrated Instant-Play Games</div>
-                        <div class="v-bullet">Interactive Narrative Platform</div>
-                    </div>
-                    <div class="venture-actions">
-                        <div class="btn-card btn-disabled">Coming Soon</div>
+                    <img src="assets/images/platform-gaming.png" alt="Cortenity Gaming" class="venture-image">
+                    <div class="venture-content">
+                        <div class="status-badge status-dev">Under Development</div>
+                        <h3>Cortenity Gaming</h3>
+                        <p class="venture-desc">The future of browser-native play. Building an integrated environment
+                            for
+                            gaming articles, interactive stories, and lightweight instant-play experiences.</p>
+                        <div class="venture-bullets">
+                            <div class="v-bullet">Gaming Intelligence & Articles</div>
+                            <div class="v-bullet">Integrated Instant-Play Games</div>
+                            <div class="v-bullet">Interactive Narrative Platform</div>
+                        </div>
+                        <div class="venture-actions">
+                            <div class="btn-ghost" style="border-style: dashed; opacity: 0.5;">Expected 2026</div>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Venture 4: Twispeer -->
                 <article class="venture-card reveal delay-1">
-                    <div class="status-badge status-dev">Under Development</div>
-                    <h3>Twispeer</h3>
-                    <p class="venture-desc">An anonymous sanctuary for thought sharing. A privacy-first social platform
-                        focused on simple expression and community-driven knowledge exchange.</p>
-                    <div class="venture-bullets">
-                        <div class="v-bullet">Anonymous Thought Posting</div>
-                        <div class="v-bullet">Privacy-First Data Architecture</div>
-                        <div class="v-bullet">Simple, Minimal Expression</div>
-                    </div>
-                    <div class="venture-actions">
-                        <div class="btn-card btn-disabled">Coming Soon</div>
+                    <div class="venture-content">
+                        <div class="status-badge status-dev">Under Development</div>
+                        <h3>Twispeer</h3>
+                        <p class="venture-desc">An anonymous sanctuary for thought sharing. A privacy-first social
+                            platform
+                            focused on simple expression and community-driven knowledge exchange.</p>
+                        <div class="venture-bullets">
+                            <div class="v-bullet">Anonymous Thought Posting</div>
+                            <div class="v-bullet">Privacy-First Data Architecture</div>
+                            <div class="v-bullet">Simple, Minimal Expression</div>
+                        </div>
+                        <div class="venture-actions">
+                            <div class="btn-ghost" style="border-style: dashed; opacity: 0.5;">Expected 2026</div>
+                        </div>
                     </div>
                 </article>
 
@@ -712,32 +223,83 @@
         </div>
     </section>
 
-    <section id="tools">
+    <section id="roadmap">
         <div class="container">
-            <h2 class="h-section reveal">Integrated Utilities</h2>
-            <div class="tools-grid">
+            <h2 class="h-section reveal">Our History & Roadmap</h2>
+            <div class="roadmap-wrap">
+                <div class="roadmap-line"></div>
 
-                <div class="tool-card reveal">
-                    <span>AI Art Revolution</span>
-                    <h4>Mood to AI Prompt</h4>
-                    <p>Convert raw emotions and concepts into structured, professional AI prompts.</p>
-                    <a href="https://aiartrevolution.com/mood-to-ai-prompt-generator/" target="_blank"
-                        class="btn-card btn-secondary" style="display: block; padding: 12px;">Launch Tool</a>
+                <!-- Milestone 1 -->
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <span class="roadmap-date">September 12, 2023</span>
+                        <h3>AIArtRevolution.com Launch</h3>
+                        <p>Our flagship platform for AI generative art, tutorials, and prompt engineering education.</p>
+                    </div>
                 </div>
 
-                <div class="tool-card reveal delay-1">
-                    <span>AI Art Revolution</span>
-                    <h4>Realistic AI Photo</h4>
-                    <p>Specific engine for generating lifelike photography with complex lighting and depth.</p>
-                    <a href="https://aiartrevolution.com/realistic-ai-photography-prompt-generator/" target="_blank"
-                        class="btn-card btn-secondary" style="display: block; padding: 12px;">Launch Tool</a>
+                <!-- Milestone 2 -->
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <span class="roadmap-date">November 28, 2024</span>
+                        <h3>Bestoftrend.com Launch</h3>
+                        <p>Entering the e-commerce space with high-utility product research and comparison guides.</p>
+                    </div>
                 </div>
 
-                <div class="tool-card reveal delay-2">
-                    <span>Best of Trend</span>
-                    <h4>Product Finder</h4>
-                    <p>Country-specific search utility for identifying top-trending e-commerce items.</p>
-                    <div class="btn-card btn-disabled" style="display: block; padding: 12px;">In Development</div>
+                <!-- Milestone 3 -->
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <span class="roadmap-date">December 1, 2025</span>
+                        <h3>Mood to AI Prompt Generator</h3>
+                        <p>Deployment of our specialized prompt engine for emotional and conceptual AI art generation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 4 -->
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <span class="roadmap-date">December 17, 2025</span>
+                        <h3>Realistic AI Photography</h3>
+                        <p>The launch of a high-fidelity engine specifically tuned for photorealistic AI imagery.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 5 -->
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot" style="border-color: var(--accent-trend);"></div>
+                    <div class="roadmap-content" style="border-color: var(--accent-trend);">
+                        <span class="roadmap-date">2026 (Expected)</span>
+                        <h3>Country Based Product Finder</h3>
+                        <p>Advanced e-commerce utility for identifying top-trending products across specific global
+                            regions.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 6 -->
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot" style="border-color: var(--accent-social);"></div>
+                    <div class="roadmap-content" style="border-color: var(--accent-social);">
+                        <span class="roadmap-date">2026 (Expected)</span>
+                        <h3>Twispeer Platform</h3>
+                        <p>A mission-critical move into privacy-first social sharing and anonymous thought expression.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 7 -->
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot" style="border-color: var(--accent-gaming);"></div>
+                    <div class="roadmap-content" style="border-color: var(--accent-gaming);">
+                        <span class="roadmap-date">2026 (Expected)</span>
+                        <h3>Cortenity Gaming</h3>
+                        <p>Unified environment for interactive storytelling and lightweight browser-native gaming.</p>
+                    </div>
                 </div>
 
             </div>
@@ -758,25 +320,28 @@
 
     <section id="contact">
         <div class="container">
-            <div class="contact-mask reveal">
+            <div class="contact-container reveal">
                 <h2 class="h-section">Partnerships & Collaborations</h2>
                 <p class="p-lead">We invite brand partnerships, tool collaborations, and sponsorships across our live
                     ecosystems.</p>
                 <form id="contact-form" class="form-grid">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <select required>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                        <input type="text" placeholder="Full Name" required style="margin-bottom: 0;">
+                        <input type="email" placeholder="Email Address" required style="margin-bottom: 0;">
+                    </div>
+                    <select required style="margin-bottom: 20px;">
                         <option value="" disabled selected>Reason for Inquiry</option>
                         <option value="partnership">Venture Partnership</option>
                         <option value="sponsorship">Sponsorship / Ad Placement</option>
                         <option value="feedback">Product Feedback</option>
                         <option value="other">Other Inquiry</option>
                     </select>
-                    <input type="text" placeholder="Subject">
-                    <textarea placeholder="Message..." rows="6" style="grid-column: span 2;" required></textarea>
-                    <button type="submit" class="btn-submit">Dispatch Inquiry</button>
+                    <input type="text" placeholder="Subject" style="margin-bottom: 20px;">
+                    <textarea placeholder="Message..." rows="6" required style="margin-bottom: 20px;"></textarea>
+                    <button type="submit" class="btn-vibrant" style="width: 100%; padding: 20px;">Dispatch
+                        Inquiry</button>
                     <div id="status"
-                        style="grid-column: span 2; margin-top: 20px; text-align: center; color: var(--accent-live); font-weight: 700;">
+                        style="margin-top: 20px; text-align: center; color: var(--accent-live); font-weight: 700;">
                     </div>
                 </form>
             </div>
@@ -796,19 +361,17 @@
                     <div class="f-group">
                         <h5>Directory</h5>
                         <a href="#ventures">Our Ventures</a>
-                        <a href="#tools">Our Tools</a>
+                        <a href="#roadmap">Roadmap</a>
                         <a href="#about">About</a>
-                    </div>
-                    <div class="f-group">
-                        <h5>Connect</h5>
-                        <a href="#contact">Partnerships</a>
-                        <a href="mailto:hello@cortenity.com">hello@cortenity.com</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Cortenity. All rights reserved.</p>
-                <p>Designed for High-Signal Performance.</p>
+                <p>&copy; 2026 Cortenity Parent Brand Architecture. Built for purposeful digital ownership.</p>
+                <div class="f-socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">X / Twitter</a>
+                </div>
             </div>
         </div>
     </footer>

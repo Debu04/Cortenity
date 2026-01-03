@@ -1,6 +1,6 @@
 /* 
-    Cortenity AI Tools Directory - Interactivity Engine
-    Handles cursor glow, scroll reveals, and directory-specific UI logic.
+    Cortenity Parent Brand - Interactivity Engine
+    Handles cursor glow, scroll reveals, and roadmap animations.
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Intersection Observer for High-Quality Reveals
     const revealOptions = {
-        threshold: 0.1,
+        threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     };
 
@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Optional: stop observing once revealed for performance
-                // revealObserver.unobserve(entry.target); 
             }
         });
     }, revealOptions);
@@ -34,39 +32,34 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // 3. Search Bar Teaser Interactivity
-    const searchInput = document.querySelector('.search-teaser input');
-    if (searchInput) {
-        searchInput.addEventListener('click', () => {
-            searchInput.placeholder = "Full search engine coming soon...";
-            setTimeout(() => {
-                searchInput.placeholder = "Search 500+ tools, prompts, products...";
-            }, 2000);
-        });
-    }
-
-    // 4. Submission Form Success Simulation
-    const submitForm = document.getElementById('submit-form');
-    if (submitForm) {
-        submitForm.addEventListener('submit', (e) => {
+    // 3. Contact Form Success Simulation
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const btn = submitForm.querySelector('.btn-submit');
+            const btn = contactForm.querySelector('button[type="submit"]');
             const statusBox = document.getElementById('status');
 
-            btn.innerText = 'Transmitting Data...';
+            const originalText = btn.innerText;
+            btn.innerText = 'Transmitting...';
             btn.disabled = true;
 
             setTimeout(() => {
-                btn.innerText = 'Submission Received';
-                btn.style.background = 'var(--accent-secondary)';
-                btn.style.color = '#000';
-                statusBox.innerHTML = 'Thank you! Your tool has been submitted for review. High-quality prompts and guides are featured weekly.';
-                submitForm.reset();
+                btn.innerText = 'Message Dispatched';
+                btn.style.boxShadow = '0 0 30px var(--accent-live)';
+                statusBox.innerHTML = 'Thank you. Your inquiry has been received. Our team will contact you within 24-48 hours.';
+                contactForm.reset();
+
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    btn.style.boxShadow = '';
+                }, 5000);
             }, 1500);
         });
     }
 
-    // 5. Smooth Scroll for Navigation Links
+    // 4. Smooth Scroll for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -87,18 +80,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 6. Navigation Background Morph on Scroll
+    // 5. Navigation Background Morph on Scroll
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 30) {
-            navbar.style.padding = "18px 0";
-            navbar.style.background = "rgba(3, 3, 3, 0.98)";
-            navbar.style.boxShadow = "0 10px 40px rgba(0,0,0,0.4)";
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.padding = "25px 0";
-            navbar.style.background = "var(--bg-nav)";
-            navbar.style.boxShadow = "none";
+            navbar.classList.remove('scrolled');
         }
+    });
+
+    // 6. Category Card Hover Effects (Optional JS enhancement)
+    document.querySelectorAll('.cat-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add any specific dynamic behavior if needed
+        });
     });
 
 });

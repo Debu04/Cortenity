@@ -1,29 +1,657 @@
 /* 
-    Cortenity AI Tools Directory - Global Styles
-    This file mirrors the inlined CSS in index.html for project modularity.
+    Cortenity | Parent Brand Design System v2.0
+    Confidence, Clarity, and Premium Utility.
 */
 
 :root {
-    --bg-master: #030303;
-    --bg-card: rgba(18, 18, 18, 0.5);
-    --bg-nav: rgba(3, 3, 3, 0.96);
+    --bg-master: #050505;
+    --bg-card: rgba(15, 15, 15, 0.6);
+    --bg-nav: rgba(5, 5, 5, 0.9);
     --text-prim: #ffffff;
-    --text-sec: #9ca3af;
-    --text-dim: #4b5563;
-    --accent-glow: rgba(0, 163, 255, 0.1);
-    --accent-brand: #00a3ff;
-    --accent-secondary: #00ffa3;
+    --text-sec: #a1a1aa;
+    --text-dim: #52525b;
+
+    /* Neon Accents - Vibrant Revert */
+    --accent-brand: #0096ff;
+    --accent-ai: #00ffa3;
+    --accent-trend: #f59e0b;
+    --accent-gaming: #8b5cf6;
+    --accent-social: #ec4899;
+    --accent-live: #22c55e;
+
+    --accent-glow: rgba(0, 150, 255, 0.15);
     --mouse-x: 50%;
     --mouse-y: 50%;
-    --transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
+    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     --radius-xl: 32px;
-    --radius-lg: 16px;
+    --radius-lg: 20px;
     --border: 1px solid rgba(255, 255, 255, 0.08);
     --font-h: 'Outfit', sans-serif;
     --font-b: 'Inter', sans-serif;
 }
 
-/* 
-   Functional styles are currently inlined in index.html for environmental robustness.
-   Future developers should refer to index.html for the latest component-specific rules.
-*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-master);
+    color: var(--text-prim);
+    font-family: var(--font-b);
+    overflow-x: hidden;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+/* Background System */
+.mesh-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(1200px circle at var(--mouse-x) var(--mouse-y), var(--accent-glow), transparent 80%);
+}
+
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 25px 0;
+    border-bottom: var(--border);
+    background: var(--bg-nav);
+    backdrop-filter: blur(30px);
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    padding: 15px 0;
+    background: rgba(5, 5, 5, 0.98);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: -1.2px;
+}
+
+.nav-logo img {
+    height: 32px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-sec);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--accent-brand);
+}
+
+/* Neon Button System */
+.btn-vibrant {
+    position: relative;
+    padding: 14px 32px;
+    background: var(--accent-brand);
+    color: #fff;
+    border-radius: 100px;
+    font-weight: 700;
+    font-family: var(--font-h);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-vibrant::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-vibrant:hover::before {
+    left: 100%;
+}
+
+.btn-vibrant:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 150, 255, 0.5);
+}
+
+.btn-ghost {
+    padding: 14px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    backdrop-filter: blur(10px);
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #fff;
+}
+
+/* Utility Section Spacing */
+section {
+    padding: 120px 0;
+}
+
+.h-section {
+    font-family: var(--font-h);
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    margin-bottom: 60px;
+    background: linear-gradient(135deg, #fff, var(--text-dim));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Reveal System */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.hero-content {
+    max-width: 1100px;
+}
+
+.h-hero {
+    font-family: var(--font-h);
+    font-size: 6.5rem;
+    line-height: 1;
+    letter-spacing: -4px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.p-lead {
+    font-size: 1.5rem;
+    color: var(--text-sec);
+    max-width: 800px;
+    margin-bottom: 50px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 20px;
+}
+
+/* Ventures Section */
+.venture-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.venture-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    border: var(--border);
+    padding: 0;
+    transition: var(--transition);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.venture-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-bottom: var(--border);
+    transition: var(--transition);
+}
+
+.venture-card:hover .venture-image {
+    transform: scale(1.05);
+}
+
+.venture-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.venture-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.status-badge {
+    display: inline-flex;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    align-self: flex-start;
+}
+
+.status-live {
+    color: var(--accent-live);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-dev {
+    color: var(--accent-trend);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.venture-card h3 {
+    font-family: var(--font-h);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.venture-desc {
+    color: var(--text-sec);
+    line-height: 1.6;
+    font-size: 1.15rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.venture-bullets {
+    margin-bottom: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+}
+
+.v-bullet {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--text-sec);
+    margin-bottom: 12px;
+}
+
+.v-bullet::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-brand);
+}
+
+.venture-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 15px;
+}
+
+/* Category & Resources Section */
+.category-section {
+    background: #000;
+    padding: 100px 0;
+}
+
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.cat-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.cat-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--accent-brand);
+    transform: translateY(-5px);
+}
+
+.cat-icon {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.cat-card h3 {
+    font-family: var(--font-h);
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.cat-card p {
+    color: var(--text-sec);
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.cat-meta {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-ai);
+}
+
+/* Roadmap Section */
+.roadmap-wrap {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.roadmap-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--accent-brand), transparent);
+    transform: translateX(-50%);
+}
+
+.roadmap-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.roadmap-content {
+    width: 45%;
+    background: var(--bg-card);
+    border: var(--border);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
+.roadmap-dot {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    border: 3px solid var(--accent-brand);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px var(--accent-brand);
+}
+
+.roadmap-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.roadmap-date {
+    font-family: var(--font-h);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--accent-brand);
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Contact Container */
+.contact-container {
+    padding: 60px;
+    background: linear-gradient(135deg, #0a0a0a, #000);
+    border-radius: 40px;
+    border: var(--border);
+}
+
+/* Form Styles */
+input,
+select,
+textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: var(--font-b);
+    margin-bottom: 20px;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--accent-brand);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+option {
+    background: #000;
+}
+
+/* Footer Section */
+.footer {
+    padding: 100px 0 50px;
+    background: #000;
+    border-top: var(--border);
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+.f-logo {
+    font-family: var(--font-h);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.f-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.f-group h5 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    margin-bottom: 25px;
+}
+
+.f-group a {
+    display: block;
+    color: var(--text-sec);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.f-group a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1100px) {
+    .h-hero {
+        font-size: 4.5rem;
+    }
+
+    .cat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .roadmap-line {
+        left: 40px;
+    }
+
+    .roadmap-dot {
+        left: 40px;
+    }
+
+    .roadmap-content {
+        width: calc(100% - 100px);
+        margin-left: 100px;
+    }
+
+    .roadmap-item {
+        flex-direction: row !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 25px;
+    }
+
+    .navbar {
+        padding: 20px 0;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .h-hero {
+        font-size: 3.5rem;
+    }
+
+    .h-section {
+        font-size: 2.8rem;
+    }
+
+    .cat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .venture-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 150px 0 100px;
+    }
+
+    .roadmap-line {
+        display: none;
+    }
+
+    .roadmap-dot {
+        left: 0;
+    }
+
+    .roadmap-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 25px;
+    }
+
+    .contact-container {
+        padding: 30px;
+    }
+
+    .f-nav {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+}
