@@ -136,36 +136,38 @@ a {
     display: flex;
     align-items: center;
     gap: 35px;
+    list-style: none !important;
 }
 
 .nav-links a {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-sec);
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    opacity: 0.7;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
 }
 
 .nav-links a:hover {
-    color: var(--accent-brand);
+    opacity: 1;
 }
 
 /* Neon Button System */
 .btn-vibrant {
     position: relative;
     padding: 14px 32px;
-    background: var(--accent-brand);
-    color: #fff;
+    background: linear-gradient(135deg, #00d2ff, #00ffa3);
+    color: #000;
     border-radius: 100px;
-    font-weight: 700;
+    font-weight: 800;
     font-family: var(--font-h);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     overflow: hidden;
     border: none;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
     display: inline-block;
     text-align: center;
 }
@@ -186,8 +188,8 @@ a {
 }
 
 .btn-vibrant:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(0, 150, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 210, 255, 0.5);
 }
 
 .btn-ghost {
@@ -239,14 +241,67 @@ section {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 150px;
+    padding-bottom: 80px;
 }
 
 .hero-content {
-    max-width: 1100px;
+    max-width: 900px;
+}
+
+.hero-tag {
+    color: #0080ff;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 35px;
+    display: block;
+    font-size: 0.85rem;
+}
+
+.h-hero {
+    font-family: var(--font-h);
+    font-size: 6rem;
+    line-height: 0.95;
+    margin-bottom: 40px;
+    letter-spacing: -3.5px;
+    font-weight: 800;
+}
+
+.hero-fade {
+    background: linear-gradient(to bottom, #fff 30%, rgba(255, 255, 255, 0.4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.p-lead {
+    font-size: 1.3rem;
+    color: var(--text-sec);
+    line-height: 1.6;
+    margin-bottom: 45px;
+    max-width: 700px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.hero-actions {
+    margin-top: 50px;
+}
+
+/* Global Section Label Refinement (Blue Color) */
+.section-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #0080ff;
+    /* Unified vibrant blue */
+    margin-bottom: 25px;
+    display: block;
 }
 
 .h-hero {
@@ -387,15 +442,7 @@ section {
     margin-top: 40px;
 }
 
-.section-label {
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text-dim);
-    margin-bottom: 20px;
-    display: block;
-}
+/* Global Section Label Refinement (Blue Color) consolidated in Hero section */
 
 .resource-tags {
     display: flex;
