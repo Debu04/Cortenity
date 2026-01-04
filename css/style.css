@@ -270,20 +270,19 @@ section {
     gap: 20px;
 }
 
-/* Ventures Section - Website Card Design 1 (Refined) */
+/* Ventures Section - Professional Spacing */
 .venture-grid {
     display: flex;
     flex-direction: column;
-    gap: 80px;
-    /* Increased gap for better breathing */
+    gap: 256px;
+    /* Professional spacing as requested */
+    padding: 100px 0;
 }
 
 .venture-card {
-    background: transparent;
-    /* Solid background removed */
-    border-radius: 40px;
-    border: none;
-    /* Very subtle border removed */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
     padding: 0;
     transition: var(--transition);
     display: grid;
@@ -292,6 +291,8 @@ section {
     align-items: center;
     position: relative;
     overflow: visible;
+    min-height: 80vh;
+    /* Ensures focus on one card */
 }
 
 /* Alternating Layout */
@@ -309,7 +310,9 @@ section {
 }
 
 .venture-card:hover {
-    transform: translateY(-5px);
+    background: transparent !important;
+    border: none !important;
+    transform: none !important;
 }
 
 .venture-card::before {
@@ -350,6 +353,17 @@ section {
     margin-bottom: 25px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.status-badge.live {
+    color: #00ffa3 !important;
+    border-color: rgba(0, 255, 163, 0.3) !important;
+}
+
+.status-badge.dev {
+    color: #f59e0b !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
 }
 
 .venture-card h3 {
@@ -413,17 +427,27 @@ section {
 
 .sub-card {
     background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 25px;
     transition: var(--transition);
     text-decoration: none;
+    display: block;
 }
 
 .sub-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #00ffa3;
+    /* Neon green glow to match buttons */
+    box-shadow: 0 0 30px rgba(0, 255, 163, 0.2);
     transform: translateY(-5px);
+}
+
+.sub-card.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(0.8);
 }
 
 .sub-card h4 {
@@ -444,14 +468,16 @@ section {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 34px;
+    padding: 10px 26px;
+    /* 25% shorter */
     background: linear-gradient(135deg, #00d2ff, #00ffa3);
     color: #000 !important;
     font-weight: 800;
     border-radius: 50px;
     text-decoration: none;
     font-family: var(--font-b);
-    font-size: 1rem;
+    font-size: 0.9rem;
+    /* Slightly smaller for proportion */
     margin: 30px 0;
     transition: var(--transition);
     border: none;
@@ -463,24 +489,7 @@ section {
     box-shadow: 0 15px 35px rgba(0, 210, 255, 0.5);
 }
 
-.venture-image {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    border-bottom: var(--border);
-    transition: var(--transition);
-}
-
-.venture-card:hover .venture-image {
-    transform: scale(1.05);
-}
-
-.venture-content {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
+/* Base content layout resets moved to media queries if needed */
 
 .venture-card:hover {
     border-color: rgba(255, 255, 255, 0.2);
@@ -833,6 +842,25 @@ option {
     }
 
     .venture-grid {
+        gap: 80px;
+        /* Adjusted but still professional for mobile */
+    }
+
+    .venture-card {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+    }
+
+    .venture-card:nth-child(even) .venture-image-wrap,
+    .venture-card:nth-child(even) .venture-content {
+        grid-column: auto;
+    }
+
+    .venture-card h3 {
+        font-size: 2.5rem;
+    }
+
+    .sub-card-grid {
         grid-template-columns: 1fr;
     }
 
