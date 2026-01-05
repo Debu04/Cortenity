@@ -122,7 +122,7 @@ a {
 .nav-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0px;
     font-family: var(--font-h);
     font-weight: 800;
     font-size: 1.6rem;
@@ -130,7 +130,7 @@ a {
 }
 
 .nav-logo img {
-    height: 32px;
+    height: 60px;
 }
 
 .nav-links {
