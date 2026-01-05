@@ -39,23 +39,59 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const btn = contactForm.querySelector('button[type="submit"]');
             const statusBox = document.getElementById('status');
-
             const originalText = btn.innerText;
+
+            // Prepare button for loading state
             btn.innerText = 'Transmitting...';
             btn.disabled = true;
 
-            setTimeout(() => {
-                btn.innerText = 'Message Dispatched';
-                btn.style.boxShadow = '0 0 30px var(--accent-live)';
-                statusBox.innerHTML = 'Thank you. Your inquiry has been received. Our team will contact you within 24-48 hours.';
-                contactForm.reset();
+            // Gather form data
+            const formData = new FormData(contactForm);
 
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.disabled = false;
-                    btn.style.boxShadow = '';
-                }, 5000);
-            }, 1500);
+            // Send POST request to backend
+            fetch('send_email.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        // Success handling
+                        btn.innerText = 'Message Dispatched';
+                        btn.style.boxShadow = '0 0 30px var(--accent-live)';
+                        statusBox.style.color = 'var(--accent-live)';
+                        statusBox.textContent = data.message;
+                        contactForm.reset();
+
+                        // Reset button after delay
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                            btn.style.boxShadow = '';
+                            statusBox.textContent = '';
+                        }, 5000);
+                    } else {
+                        // Error handling from server
+                        throw new Error(data.message || 'Unknown error occurred');
+                    }
+                })
+                .catch(error => {
+                    // Network or script error handling
+                    console.error('Error:', error);
+                    statusBox.style.color = '#ef4444'; // Red for error
+                    statusBox.textContent = 'Transmission failed. Attempting local client...';
+
+                    // Fallback to mailto link if PHP fails (e.g., no server)
+                    setTimeout(() => {
+                        const name = formData.get('name');
+                        const subject = formData.get('subject') || 'New Inquiry';
+                        const message = formData.get('message');
+                        window.location.href = `mailto:ai.artz70@gmail.com?cc=medebu4@gmail.com&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + name + "\n\n" + message)}`;
+
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                    }, 2000);
+                });
         });
     }
 

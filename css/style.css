@@ -387,8 +387,8 @@ section {
     font-weight: 700;
 }
 
-/* Ventures Section - Professional Spacing */
-.venture-grid {
+/* Projects Section - Professional Spacing */
+.project-grid {
     display: flex;
     flex-direction: column;
     gap: 256px;
@@ -396,7 +396,7 @@ section {
     padding: 100px 0;
 }
 
-.venture-card {
+.project-card {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -408,7 +408,7 @@ section {
     min-height: 80vh;
 }
 
-.venture-content {
+.project-content {
     display: grid;
     grid-template-areas:
         "image badge"
@@ -422,7 +422,7 @@ section {
     align-items: center;
 }
 
-.venture-image-wrap {
+.project-image-wrap {
     grid-area: image;
     width: 100%;
     position: relative;
@@ -431,7 +431,7 @@ section {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
-.venture-card:nth-child(even) .venture-content {
+.project-card:nth-child(even) .project-content {
     grid-template-areas:
         "badge image"
         "title image"
@@ -442,17 +442,17 @@ section {
     grid-template-columns: 1fr 1.1fr;
 }
 
-.venture-card:hover {
+.project-card:hover {
     background: transparent !important;
     border: none !important;
     transform: none !important;
 }
 
-.venture-card::before {
+.project-card::before {
     display: none;
 }
 
-.venture-image-wrap {
+.project-image-wrap {
     width: 100%;
     position: relative;
     border-radius: 24px;
@@ -460,18 +460,18 @@ section {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
-.venture-image {
+.project-image {
     width: 100%;
     height: auto;
     display: block;
     transition: var(--transition);
 }
 
-.venture-card:hover .venture-image {
+.project-card:hover .project-image {
     transform: scale(1.02);
 }
 
-.venture-content {
+.project-content {
     padding: 0;
 }
 
@@ -499,7 +499,7 @@ section {
     border-color: rgba(245, 158, 11, 0.3) !important;
 }
 
-.venture-card h3 {
+.project-card h3 {
     font-family: var(--font-h);
     font-size: 4rem;
     line-height: 1.1;
@@ -507,7 +507,7 @@ section {
     letter-spacing: -2px;
 }
 
-.venture-desc {
+.project-desc {
     color: var(--text-sec);
     line-height: 1.7;
     font-size: 1.2rem;
@@ -618,7 +618,7 @@ section {
 
 /* Base content layout resets moved to media queries if needed */
 
-.venture-card:hover {
+.project-card:hover {
     border-color: rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.03);
 }
@@ -645,13 +645,13 @@ section {
     border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
-.venture-card h3 {
+.project-card h3 {
     font-family: var(--font-h);
     font-size: 2.2rem;
     margin-bottom: 15px;
 }
 
-.venture-desc {
+.project-desc {
     color: var(--text-sec);
     line-height: 1.6;
     font-size: 1.15rem;
@@ -659,7 +659,7 @@ section {
     font-weight: 300;
 }
 
-.venture-bullets {
+.project-bullets {
     margin-bottom: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 30px;
@@ -682,7 +682,7 @@ section {
     background: var(--accent-brand);
 }
 
-.venture-actions {
+.project-actions {
     margin-top: auto;
     display: flex;
     gap: 15px;
