@@ -90,10 +90,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 6. Category Card Hover Effects (Optional JS enhancement)
-    document.querySelectorAll('.cat-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            // Add any specific dynamic behavior if needed
+    // 7. Mobile Navigation Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navbar.classList.toggle('nav-active');
+            document.body.style.overflow = navbar.classList.contains('nav-active') ? 'hidden' : 'visible';
+        });
+    }
+
+    // Close mobile menu when clicking links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('nav-active');
+            document.body.style.overflow = 'visible';
         });
     });
 
