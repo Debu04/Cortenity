@@ -980,7 +980,7 @@ option {
         padding-bottom: 100px !important;
     }
 
-    .venture-grid {
+    .project-grid {
         gap: 80px;
     }
 
@@ -1077,16 +1077,16 @@ option {
         /* Above the overlay (999) */
     }
 
-    /* "Our Ventures" Heading Spacing Removal */
-    /* Targeting the h-section inside #ventures specifically on mobile */
-    #ventures .h-section {
+    /* "Our Projects" Heading Spacing Removal */
+    /* Targeting the h-section inside #projects specifically on mobile */
+    #projects .h-section {
         margin-bottom: 0;
         /* "remove the bottom padding" */
         padding-bottom: 0;
     }
 
-    /* Ensure the grid doesn't stick too close if margin is 0, user said "remove bottom padding from 'Our Ventures' this heading" */
-    #ventures .section-label {
+    /* Ensure the grid doesn't stick too close if margin is 0 */
+    #projects .section-label {
         margin-bottom: 10px;
     }
 
@@ -1143,15 +1143,15 @@ option {
         grid-template-columns: 1fr;
     }
 
-    .venture-grid {
+    .project-grid {
         gap: 120px;
     }
 
-    .venture-card {
+    .project-card {
         min-height: auto;
     }
 
-    .venture-content {
+    .project-content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -1162,18 +1162,18 @@ option {
         margin-bottom: 20px;
     }
 
-    .venture-card h3 {
+    .project-card h3 {
         font-size: 2.5rem;
         margin-bottom: 20px;
     }
 
-    .venture-image-wrap {
+    .project-image-wrap {
         margin: 20px 0 30px;
         order: 0;
         /* Ensures it stays after title in flow if badge/title are before */
     }
 
-    .venture-desc {
+    .project-desc {
         font-size: 1.1rem;
         margin-bottom: 25px;
     }
