@@ -1047,7 +1047,7 @@ option {
 
     .btn-submit {
         width: 100%;
-        /* Mobile full width usually better? User said 'make the "Dispatch Inquiry" button size 50% in desktop and tablet screens', implies mobile might be 100% or default. I'll stick to 100% for mobile UX unless asked otherwise. User didn't specify mobile size, just "50% in desktop and tablet". */
+        /* Mobile full width usually better? User said 'make the "Submit" button size 50% in desktop and tablet screens', implies mobile might be 100% or default. I'll stick to 100% for mobile UX unless asked otherwise. User didn't specify mobile size, just "50% in desktop and tablet". */
     }
 
     /* Exceptions where some bottom spacing might be needed inside the specific container, 
@@ -1298,5 +1298,18 @@ option {
 
     .footer-bottom p {
         order: 2;
+    }
+}
+
+/* Small Material/Mobile Fixes (< 480px) */
+@media (max-width: 480px) {
+
+    .btn-vibrant,
+    .btn-submit,
+    .btn-visit {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        letter-spacing: 1px;
+        font-size: 0.85rem;
     }
 }
